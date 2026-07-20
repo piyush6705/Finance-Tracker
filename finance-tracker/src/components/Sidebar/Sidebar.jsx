@@ -8,6 +8,9 @@ function Sidebar() {
 
       <ul>
         <li>
+          <NavLink to="/">Dashboard</NavLink>
+        </li>
+        <li>
           <NavLink to="/income">Income</NavLink>
         </li>
 
