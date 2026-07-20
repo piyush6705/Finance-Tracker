@@ -1,5 +1,11 @@
+import Layout from "../../components/Layout/Layout";
+
 function Settings() {
-  return <h1>Settings</h1>;
+  return (
+    <Layout>
+      <h1>Settings</h1>
+    </Layout>
+  );
 }
 
 export default Settings;
