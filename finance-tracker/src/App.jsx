@@ -11,13 +11,20 @@ import './App.css'
 import { Routes, Route } from "react-router-dom";
 
 function App() {
-  
+
 
   return (
-    
+
     <Routes>
 
       <Route path="/" element={<Dashboard />} />
+      <Route path="/income" element={<Income />} />
+      <Route path="/expenses" element={<Expenses />} />
+      <Route path="/analytics" element={<Analytics />} />
+      <Route path="/budgets" element={<Budgets />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/settings" element={<Settings />} />
+      <Route path="*" element={<NotFound />} />
 
     </Routes>
   )
