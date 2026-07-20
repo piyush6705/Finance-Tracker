@@ -1,11 +1,11 @@
 import Layout from "../../components/Layout/Layout";
 
-function () {
+function Analytics() {
   return (
     <Layout>
-      <h1>Income</h1>
+      <h1>Analytics</h1>
     </Layout>
   );
 }
 
-export default Income;
+export default Analytics;
