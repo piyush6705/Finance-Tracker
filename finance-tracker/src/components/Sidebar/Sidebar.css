@@ -1,17 +1,16 @@
-.sidebar {
-  width: 220px;
-  min-height: calc(100vh - 70px);
-  background: #1e293b;
+.sidebar a {
   color: white;
-  padding: 20px;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 6px;
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
+.sidebar a:hover {
+  background-color: #334155;
 }
 
-.sidebar li {
-  margin: 20px 0;
-  cursor: pointer;
+.sidebar a.active {
+  background-color: #2563eb;
+  font-weight: bold;
 }
