@@ -1,5 +1,11 @@
+import Layout from "../../components/Layout/Layout";
+
 function Income() {
-  return <h1>Income</h1>;
+  return (
+    <Layout>
+      <h1>Income</h1>
+    </Layout>
+  );
 }
 
 export default Income;
