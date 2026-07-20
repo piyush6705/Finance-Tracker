@@ -1,6 +1,11 @@
+import Layout from "../../components/Layout/Layout";
 
 function Budgets() {
-  return <h1>Budgets</h1>;
+  return (
+    <Layout>
+      <h1>Budgets</h1>
+    </Layout>
+  );
 }
 
 export default Budgets;
