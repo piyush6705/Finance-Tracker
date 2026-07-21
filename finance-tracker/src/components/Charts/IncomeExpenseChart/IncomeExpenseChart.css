@@ -1,12 +1,84 @@
-.bar-chart-card{
-    background:#fff;
-    margin-top:30px;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+.bar-chart-card {
+  background: #ffffff;
+  border-radius: 16px;
+
+  padding: 24px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  width: 100%;
+  height: 100%;
+  margin-top: 28px;
 }
 
-.bar-chart-card h2{
-    margin-bottom:20px;
-    color:#0f172a;
+.bar-chart-card h2 {
+  margin-bottom: 20px;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  color: #1e293b;
+}
+
+
+/* Responsive chart container */
+.bar-chart-card .recharts-responsive-container {
+  margin-top: 10px;
+}
+
+
+/* Axis text */
+.recharts-cartesian-axis-tick-value {
+  fill: #64748b;
+  font-size: 12px;
+}
+
+
+/* Grid lines */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #e2e8f0;
+}
+
+
+/* Tooltip */
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  background-color: #ffffff !important;
+
+  border: none !important;
+
+  border-radius: 10px;
+
+  padding: 12px !important;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+/* Legend */
+.recharts-legend-wrapper {
+  padding-top: 10px;
+}
+
+.recharts-legend-item-text {
+  color: #475569 !important;
+  font-size: 14px;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .bar-chart-card {
+    padding: 15px;
+  }
+
+  .bar-chart-card h2 {
+    font-size: 18px;
+  }
+
 }

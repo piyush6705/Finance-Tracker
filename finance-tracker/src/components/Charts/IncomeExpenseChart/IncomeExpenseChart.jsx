@@ -54,7 +54,11 @@ function IncomeExpenseChart() {
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" />
-          <YAxis />
+          <YAxis
+            tickFormatter={(value) =>
+              `₹${value.toLocaleString("en-IN")}`
+            }
+          />
           <Tooltip
             formatter={(value) =>
               `₹${value.toLocaleString("en-IN")}`
