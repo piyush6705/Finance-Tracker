@@ -58,6 +58,7 @@ function Dashboard() {
           <RecentTransactions />
           <ExpensePieChart />
         </div>
+        <IncomeExpenseChart />
       </div>
      </Layout>
   );
