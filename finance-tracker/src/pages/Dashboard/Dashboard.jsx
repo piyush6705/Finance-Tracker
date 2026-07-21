@@ -9,7 +9,8 @@ import {
   FaPiggyBank,
 } from "react-icons/fa";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
-import ExpensePieChart from "../../components/Charts/ExpensePieChart";
+import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
+import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/IncomeExpenseChart";
 
 const summaryData = [
   {
