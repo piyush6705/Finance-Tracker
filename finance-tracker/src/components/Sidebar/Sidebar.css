@@ -4,6 +4,8 @@
   display: block;
   padding: 10px;
   border-radius: 6px;
+  margin-left: 10px;
+  width: 100px;
 }
 
 .sidebar a:hover {
