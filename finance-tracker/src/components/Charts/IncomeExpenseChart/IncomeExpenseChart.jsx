@@ -50,6 +50,32 @@ function IncomeExpenseChart() {
 
       <h2>Income vs Expense</h2>
 
+      <ResponsiveContainer width="100%" height={350}>
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Tooltip
+            formatter={(value) =>
+              `₹${value.toLocaleString("en-IN")}`
+            }
+          />
+          <Legend />
+          <Bar
+              dataKey="income"
+              fill="#77f1a3"
+              radius={[8,8,0,0]}
+          />
+
+          <Bar
+              dataKey="expense"
+              fill="#ea8686"
+              radius={[8,8,0,0]}
+          />
+        </BarChart>
+
+      </ResponsiveContainer>
+
     </div>
   );
 }
