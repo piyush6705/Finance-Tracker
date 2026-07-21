@@ -13,7 +13,7 @@ function SummaryCard({title, amount, icon, color}) {
 
         <div className="card-info">
           <h4>{title}</h4>
-          <h2>{amount}</h2>
+          <h2>₹{amount.toLocaleString("en-IN")}</h2>
         </div>
       </div>
   );
