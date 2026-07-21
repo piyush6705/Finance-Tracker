@@ -1,4 +1,4 @@
-import './RecentTransactions.css';
+import "./RecentTransactions.css";
 
 function RecentTransactions() {
   const transactions = [
@@ -26,28 +26,39 @@ function RecentTransactions() {
   ];
 
   return (
-    <div>
+    <div className="transactions-container">
       <h2>Recent Transactions</h2>
 
       {transactions.map((transaction) => (
-        <div key={transaction.id}>
-          <h3>{transaction.title}</h3>
+        <div key={transaction.id} className="transaction-card">
+          <div className="top-row">
+            <h3>{transaction.title}</h3>
 
-          <p>{transaction.type}</p>
-
-          <p>₹{transaction.amount.toLocaleString("en-IN")}</p>
-
-          <p>{transaction.date}</p>
-          <p
-            className={
-              transaction.type === "Income"
-                ? "income"
+            <p
+              className={
+                transaction.type === "Income" ? "income"
                 : "expense"
-            }
-          >
-            {transaction.type === "Income" ? "+" : "-"}₹
-            {transaction.amount.toLocaleString("en-IN")}
-          </p>
+              }
+              >
+              {transaction.type === "Income" ? "+" : "-"}₹
+              {transaction.amount.toLocaleString("en-IN")}
+            </p>
+          </div>
+
+          <div className="button-row">
+            <span
+              className={
+                transaction.type === "Income"
+                ? "income-badge"
+                : "expense-badge"
+              }
+            >
+              {transaction.type}
+            </span>
+
+            <span>{transaction.date}</span>
+            
+          </div>
         </div>
       ))}
     </div>

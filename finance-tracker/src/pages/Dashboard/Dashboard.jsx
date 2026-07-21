@@ -8,6 +8,7 @@ import {
   FaWallet,
   FaPiggyBank,
 } from "react-icons/fa";
+import RecentTransactions from "../../components/Dashboard/RecentTransactions";
 
 const summaryData = [
   {
@@ -51,6 +52,8 @@ function Dashboard() {
             />
           ))}
         </div>
+        <RecentTransactions />
+
       </div>
      </Layout>
   );
