@@ -26,42 +26,49 @@ function RecentTransactions() {
   ];
 
   return (
-    <div className="transactions-container">
-      <h2>Recent Transactions</h2>
+    <div className="transactions-card">
 
-      {transactions.map((transaction) => (
-        <div key={transaction.id} className="transaction-card">
-          <div className="top-row">
-            <h3>{transaction.title}</h3>
+<h2>Recent Transactions</h2>
 
-            <p
-              className={
-                transaction.type === "Income" ? "income"
-                : "expense"
-              }
-              >
-              {transaction.type === "Income" ? "+" : "-"}₹
-              {transaction.amount.toLocaleString("en-IN")}
-            </p>
-          </div>
+{transactions.map((transaction)=>(
 
-          <div className="button-row">
-            <span
-              className={
-                transaction.type === "Income"
-                ? "income-badge"
-                : "expense-badge"
-              }
-            >
-              {transaction.type}
-            </span>
+<div className="transaction" key={transaction.id}>
 
-            <span>{transaction.date}</span>
-            
-          </div>
-        </div>
-      ))}
-    </div>
+<div className="transaction-left">
+
+<h3>{transaction.title}</h3>
+
+<div className="transaction-details">
+
+<p className={transaction.type==="Income" ? "income" : "expense"}>
+{transaction.type}
+</p>
+
+<p>{transaction.date}</p>
+
+</div>
+
+</div>
+
+<div
+className={`transaction-right ${
+transaction.type==="Income"
+? "income-amount"
+: "expense-amount"
+}`}
+>
+
+{transaction.type==="Income" ? "+" : "-"}
+
+₹{transaction.amount.toLocaleString("en-IN")}
+
+</div>
+
+</div>
+
+))}
+
+</div>
   );
 }
 

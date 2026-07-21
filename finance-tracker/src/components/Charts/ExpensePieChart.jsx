@@ -5,7 +5,6 @@ import {
   Pie,
   Cell,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
@@ -30,38 +29,54 @@ function ExpensePieChart() {
     <div className="chart-card">
       <h2>Expense Breakdown</h2>
 
-      <ResponsiveContainer width="100%" height={350}>
-        <PieChart>
-          <Pie
-            data={expenseData}
-            dataKey="value"
-            nameKey="name"
-            cx="50%"
-            cy="50%"
-            outerRadius={140}
-            
-          >
-            {expenseData.map((extry, index) => (
-              <Cell
-              key={index}
-              fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
+      <div className="chart-wrapper">
+        <ResponsiveContainer width="70%" height={350}>
+          <PieChart>
+            <Pie
+              data={expenseData}
+              dataKey="value"
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              outerRadius={120}
+              
+            >
+              {expenseData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
 
-          <Tooltip
-            formatter={(value) =>
-              [`₹${value.toLocaleString("en-IN")}`, "Amount"]
-            }
-          />
+            <Tooltip
+              formatter={(value) => [
+                `₹${value.toLocaleString("en-IN")}`,
+                "Amount",
+              ]}
+            />
+          </PieChart>
+        </ResponsiveContainer>
 
-          <Legend
-            verticalAlign="bottom"
-            align="center"
-            iconType="circle"
-          />
-        </PieChart>
-      </ResponsiveContainer>
+        <div className="custom-legend">
+          {expenseData.map((item, index) => (
+            <div className="legend-item" key={item.name}>
+              <span
+                className="legend-color"
+                style={{ backgroundColor: COLORS[index] }}
+              ></span>
+
+              <span className="legend-name">
+                {item.name}
+              </span>
+
+              <span className="legend-value">
+                ₹{item.value.toLocaleString("en-IN")}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

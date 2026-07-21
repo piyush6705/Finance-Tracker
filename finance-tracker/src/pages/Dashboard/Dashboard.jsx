@@ -53,8 +53,10 @@ function Dashboard() {
             />
           ))}
         </div>
-        <RecentTransactions />
-        <ExpensePieChart />
+        <div className="dashboard-grid">
+          <RecentTransactions />
+          <ExpensePieChart />
+        </div>
       </div>
      </Layout>
   );

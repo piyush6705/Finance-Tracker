@@ -1,13 +1,67 @@
-.chart-card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 15px;
-  margin-top: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.chart-card{
+
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
 }
 
 .chart-card h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #1e293b;
+    color: #0f172a;
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.chart-wrapper{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+
+}
+
+.custom-legend{
+
+    flex:1;
+
+}
+
+.legend-item{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #e2e8f0;
+
+}
+
+.legend-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.legend-name {
+    flex: 1;
+    margin-left: 14px;
+    color: #1e293b;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.legend-color{
+
+    width:14px;
+    height:14px;
+    border-radius:50%;
+
+}
+
+.legend-value {
+    color: #0a1632;
+    font-weight: 650;
 }
