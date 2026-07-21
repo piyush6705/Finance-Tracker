@@ -9,6 +9,7 @@ import {
   FaPiggyBank,
 } from "react-icons/fa";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
+import ExpensePieChart from "../../components/Charts/ExpensePieChart";
 
 const summaryData = [
   {
@@ -53,7 +54,7 @@ function Dashboard() {
           ))}
         </div>
         <RecentTransactions />
-
+        <ExpensePieChart />
       </div>
      </Layout>
   );
