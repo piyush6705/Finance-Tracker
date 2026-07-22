@@ -1,0 +1,44 @@
+.expenses-page {
+  width: 100%;
+  padding: 30px;
+}
+
+.expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.expenses-header h1 {
+  font-size: 32px;
+  color: white;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.add-expense-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.add-expense-btn:hover {
+  background: #dc2626;
+}
+
+.expense-list-section {
+  margin-top: 20px;
+}
