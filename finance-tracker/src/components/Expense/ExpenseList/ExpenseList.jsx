@@ -25,7 +25,7 @@ const expenses = [
   },
 ];
 
-function ExpenseList({ search }) {
+function ExpenseList({ expenses, search }) {
 
   const filteredExpense = expenses.filter((expense)=>
     expense.title
