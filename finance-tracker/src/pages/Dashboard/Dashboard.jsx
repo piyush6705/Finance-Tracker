@@ -11,6 +11,7 @@ import {
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
 import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
 import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/IncomeExpenseChart";
+import SavingsGoal from "../../components/Dashboard/SavingsGoal/SavingsGoal";
 
 const summaryData = [
   {
@@ -59,6 +60,8 @@ function Dashboard() {
           <ExpensePieChart />
         </div>
         <IncomeExpenseChart />
+        <SavingsGoal />
+
       </div>
      </Layout>
   );
