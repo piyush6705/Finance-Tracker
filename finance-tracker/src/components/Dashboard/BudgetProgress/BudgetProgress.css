@@ -1,0 +1,62 @@
+.budget-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  margin-top: 30px;
+}
+
+.budget-card h2 {
+  margin-bottom: 25px;
+  color: #1e293b;
+}
+
+.budget-item {
+  margin-bottom: 30px;
+}
+
+.budget-item:last-child {
+  margin-bottom: 0;
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.budget-header h3 {
+  font-size: 18px;
+  color: #1e293b;
+}
+
+.budget-percent {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.budget-amount {
+  margin: 10px 0;
+  color: #64748b;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #22c55e;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.budget-status {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #475569;
+}

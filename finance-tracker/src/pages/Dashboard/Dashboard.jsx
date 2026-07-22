@@ -12,6 +12,7 @@ import RecentTransactions from "../../components/Dashboard/RecentTransactions";
 import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
 import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/IncomeExpenseChart";
 import SavingsGoal from "../../components/Dashboard/SavingsGoal/SavingsGoal";
+import BudgetProgress from "../../components/Dashboard/BudgetProgress/BudgetProgress";
 
 const summaryData = [
   {
@@ -61,6 +62,7 @@ function Dashboard() {
         </div>
         <IncomeExpenseChart />
         <SavingsGoal />
+        <BudgetProgress />
 
       </div>
      </Layout>
