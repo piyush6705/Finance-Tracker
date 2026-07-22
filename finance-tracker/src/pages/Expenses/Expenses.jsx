@@ -37,39 +37,33 @@ function Expenses() {
 
   return (
     <Layout>
-      <div className="expenses-page">
-        <div className="expenses-header">
-          <h1>Expenses</h1>
-
-          <div className="header-actions">
-            <SearchExpense
-              search={search}
-              setSearch={setSearch}
-            />
-
-            <button
-              className="add-expense-btn"
-              onClick={() => setShowModal(true)}
-            >
-              + Add Expense
-            </button>
-          </div>
-        </div>
-
-        <div className="expense-list-section">
-          <ExpenseList
-            expenses={expenses}
-            search={search}
-          />
-        </div>
-
-        <AddExpenseModal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          expenses={expenses}
-          setExpenses={setExpenses}
-        />
+      <div className="expenses-header">
+        <h1>Expenses</h1>
       </div>
+
+      <SearchExpense
+        search={search}
+        setSearch={setSearch}
+      />
+
+      <ExpenseList
+        expenses={expenses}
+        search={search}
+      />
+
+      <AddExpenseModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        expenses={expenses}
+        setExpenses={setExpenses}
+      />
+
+      <button
+        className="add-expense-btn"
+        onClick={() => setShowModal(true)}
+      >
+        + Add Expense
+      </button>
     </Layout>
   );
 }

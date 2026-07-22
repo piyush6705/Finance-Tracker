@@ -1,11 +1,14 @@
 import "./SearchExpense.css";
+import { FaSearch } from "react-icons/fa";
 
-function SearchExpense({ search, setSearch }) {
+function SearchIncome({ search, setSearch }) {
   return (
-    <div className="search-expense">
+    <div className="search-income">
+      <FaSearch className="search-icon" />
+
       <input
         type="text"
-        placeholder="Search expenses..."
+        placeholder="Search income..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -13,4 +16,4 @@ function SearchExpense({ search, setSearch }) {
   );
 }
 
-export default SearchExpense;
+export default SearchIncome;
