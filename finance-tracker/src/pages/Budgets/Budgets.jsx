@@ -7,6 +7,7 @@ import Layout from "../../components/Layout/Layout";
 import SearchBudget from "../../components/Budget/SearchBudget/SearchBudget";
 import BudgetList from "../../components/Budget/BudgetList/BudgetList";
 import AddBudgetModal from "../../components/Budget/AddBudgetModal/AddBudgetModal";
+import BudgetSummary from "../../components/Budget/BudgetSummary/BudgetSummary";
 
 function Budget() {
   const [search, setSearch] = useState("");
@@ -43,7 +44,9 @@ function Budget() {
         search={search}
         setSearch={setSearch}
       />
-
+      <BudgetSummary
+        budgets={budgets}
+      />
       <BudgetList
         budgets={budgets}
         search={search}
