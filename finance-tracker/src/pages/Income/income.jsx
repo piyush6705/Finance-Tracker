@@ -9,9 +9,38 @@ import "./Income.css";
 function Income() {
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
+
+  const [incomes, setIncomes] = useState([
+    {
+      id: 1,
+      title: "Salary",
+      amount: 50000,
+      category: "Job",
+      date: "22 Jul 2026",
+    },
+    {
+      id: 2,
+      title: "Freelancing",
+      amount: 12000,
+      category: "Business",
+      date: "20 Jul 2026",
+    },
+    {
+      id: 3,
+      title: "Interest",
+      amount: 2500,
+      category: "Investment",
+      date: "18 Jul 2026",
+    },
+  ]);
+
   return (
     <Layout>
-      
+      <div className="income-header">
+        <h1>Income</h1>
+
+        
+      </div>
 
       <SearchIncome
         search={search}
@@ -19,20 +48,22 @@ function Income() {
       />
 
       <IncomeList
+        incomes={incomes}
         search={search}
       />
-
-      <button
-        className="add-income-btn"
-        onClick={() => setShowModal(true)}
-      >
-        + Add Income
-      </button>
 
       <AddIncomeModal
         showModal={showModal}
         setShowModal={setShowModal}
+        incomes={incomes}
+        setIncomes={setIncomes}
       />
+      <button
+          className="add-income-btn"
+          onClick={() => setShowModal(true)}
+        >
+          + Add Income
+        </button>
     </Layout>
   );
 }

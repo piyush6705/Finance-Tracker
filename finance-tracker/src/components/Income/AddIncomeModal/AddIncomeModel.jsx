@@ -1,7 +1,12 @@
-import "./AddIncomeModal.css";
 import { useState } from "react";
+import "./AddIncomeModal.css";
 
-function AddIncomeModal({ showModal, setShowModal }) {
+function AddIncomeModal({
+  showModal,
+  setShowModal,
+  incomes,
+  setIncomes,
+}) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -9,22 +14,45 @@ function AddIncomeModal({ showModal, setShowModal }) {
 
   if (!showModal) return null;
 
+  const handleSave = () => {
+    if (!title || !amount || !category || !date) {
+      alert("Please fill all fields.");
+      return;
+    }
+
+    const newIncome = {
+      id: Date.now(),
+      title,
+      amount: Number(amount),
+      category,
+      date,
+    };
+
+    setIncomes([...incomes, newIncome]);
+
+    setTitle("");
+    setAmount("");
+    setCategory("");
+    setDate("");
+
+    setShowModal(false);
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal">
-
         <h2>Add Income</h2>
 
         <input
           type="text"
-          placeholder="Title"
+          placeholder="Income Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
         <input
           type="number"
-          placeholder="amount"
+          placeholder="Amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />
@@ -43,20 +71,27 @@ function AddIncomeModal({ showModal, setShowModal }) {
         />
 
         <div className="modal-buttons">
-
           <button
             className="cancel-btn"
-            onClick={() => setShowModal(false)}
+            onClick={() => {
+              setShowModal(false);
+
+              setTitle("");
+              setAmount("");
+              setCategory("");
+              setDate("");
+            }}
           >
             Cancel
           </button>
 
-          <button className="save-btn">
+          <button
+            className="save-btn"
+            onClick={handleSave}
+          >
             Save
           </button>
-
         </div>
-
       </div>
     </div>
   );
