@@ -51,20 +51,19 @@ function IncomeExpenseChart() {
       <h2>Income vs Expense</h2>
 
       <ResponsiveContainer width="100%" height={350}>
-        <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
+        <BarChart data={data}  barGap={8}
+         barCategoryGap="25%">
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <XAxis dataKey="month" tick={{ fill: "#64748b" }} />
           <YAxis
-            tickFormatter={(value) =>
-              `₹${value.toLocaleString("en-IN")}`
-            }
+            tickFormatter={(value) => `${value / 1000}k`}
+            tick={{ fill: "#64748b" }}
           />
           <Tooltip
-            formatter={(value) =>
-              `₹${value.toLocaleString("en-IN")}`
-            }
+            formatter={(value) => `₹${value.toLocaleString("en-IN")}`}
+            cursor={{ fill: "rgba(0,0,0,0.05)" }}
           />
-          <Legend />
+          <Legend verticalAlign="top" align="right" />
           <Bar
               dataKey="income"
               fill="#77f1a3"
@@ -74,7 +73,7 @@ function IncomeExpenseChart() {
           <Bar
               dataKey="expense"
               fill="#ea8686"
-              radius={[8,8,0,0]}
+              radius={[10,10,0,0]}
           />
         </BarChart>
 
