@@ -1,0 +1,25 @@
+.stats-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin:25px 0;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    margin-top:20px;
+}
+
+.stats-grid h4{
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.stats-grid p{
+    font-size:18px;
+    font-weight:600;
+    color:#0f172a;
+}
