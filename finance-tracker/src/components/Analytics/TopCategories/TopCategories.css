@@ -1,0 +1,18 @@
+.top-category-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin:25px 0;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.category-row{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.category-row:last-child{
+    border-bottom:none;
+}
