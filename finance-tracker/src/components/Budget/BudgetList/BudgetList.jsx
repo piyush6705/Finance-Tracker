@@ -22,7 +22,7 @@ const budgets = [
   },
 ];
 
-function BudgetList({ search }) {
+function BudgetList({ budgets, search  }) {
 
   const filteredBudgets = budgets.filter((budget) =>
     budget.category
