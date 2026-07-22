@@ -3,16 +3,15 @@ import { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import SearchIncome from "../../components/Income/SearchIncome/SearchIncome";
 import IncomeList from "../../components/Income/IncomeList/IncomeList";
-import AddIncomeModal from "../../components/Income/AddIncomeModal/AddIncomeModal";
-
+import AddIncomeModal from "../../components/Income/AddIncomeModal/AddIncomeModel";
 import "./Income.css";
 
 function Income() {
   const [search, setSearch] = useState("");
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <Layout>
-      <h1>Income</h1>
+      
 
       <SearchIncome
         search={search}
@@ -23,7 +22,17 @@ function Income() {
         search={search}
       />
 
-      <AddIncomeModal />
+      <button
+        className="add-income-btn"
+        onClick={() => setShowModal(true)}
+      >
+        + Add Income
+      </button>
+
+      <AddIncomeModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </Layout>
   );
 }
