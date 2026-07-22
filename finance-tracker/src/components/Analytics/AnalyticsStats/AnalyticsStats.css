@@ -1,25 +1,60 @@
+/* Main card */
 .stats-card{
-    background:white;
+    background:#ffffff;
+    border-radius:16px;
     padding:25px;
-    border-radius:15px;
     margin:25px 0;
     box-shadow:0 4px 12px rgba(0,0,0,.08);
+    margin-top: 0px;
 }
 
+/* Title */
+.stats-card h2{
+    font-size:28px;
+    color:#0f172a;
+    margin-bottom:25px;
+}
+
+/* Grid layout */
 .stats-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:25px;
-    margin-top:20px;
+    gap:20px;
 }
 
+/* Individual stat item */
+.stats-grid > div{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:18px;
+    transition:0.3s ease;
+}
+
+/* Hover effect */
+.stats-grid > div:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 16px rgba(0,0,0,.06);
+}
+
+/* Labels */
 .stats-grid h4{
     color:#64748b;
+    font-size:15px;
     margin-bottom:10px;
 }
 
+/* Values */
 .stats-grid p{
-    font-size:18px;
-    font-weight:600;
     color:#0f172a;
+    font-size:20px;
+    font-weight:700;
+    margin:0;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
 }

@@ -35,7 +35,10 @@ function MonthlyExpenseChart() {
 
           <XAxis dataKey="month" />
 
-          <YAxis />
+          <YAxis
+            tickFormatter={(value) => `${value / 1000}k`}
+            tick={{ fill: "#64748b" }}
+          />
 
           <Tooltip />
 
