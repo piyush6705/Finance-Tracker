@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Layout from "../../components/Layout/Layout";
 import SearchBudget from "../../components/Budget/SearchBudget/SearchBudget";
-
+import BudgetCard from "../../components/Budget/BudgetCard/BudgetCard";
 import "./Budgets.css";
 
 function Budget() {
@@ -17,6 +17,13 @@ function Budget() {
       <SearchBudget
         search={search}
         setSearch={setSearch}
+      />
+      <BudgetCard
+        category="Food"
+        spent={15000}
+        limit={20000}
+        onEdit={() => alert("Edit")}
+        onDelete={() => alert("Delete")}
       />
     </Layout>
   );
