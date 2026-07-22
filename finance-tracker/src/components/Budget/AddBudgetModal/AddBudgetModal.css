@@ -5,6 +5,8 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    
+
 }
 
 .modal{
@@ -12,6 +14,7 @@
     background:white;
     padding:25px;
     border-radius:15px;
+    
 }
 
 .modal h2{
@@ -66,3 +69,4 @@
 .cancel-btn:hover{
     background:#475569;
 }
+

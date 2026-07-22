@@ -50,7 +50,7 @@ function AddBudgetModal({
     <div className="modal-overlay">
       <div className="modal">
 
-        <h2>Add Budget</h2>
+        <h2 className="add">Add Budget</h2>
 
         <select
           value={category}
