@@ -49,6 +49,12 @@ function BudgetProgress() {
                 className="progress-fill"
                 style={{
                   width: `${progress}%`,
+                   backgroundColor:
+                    progress <= 70
+                      ? "#22c55e"
+                      : progress <= 90
+                      ? "#f59e0b"
+                      : "#ef4444",
                 }}
               ></div>
             </div>
