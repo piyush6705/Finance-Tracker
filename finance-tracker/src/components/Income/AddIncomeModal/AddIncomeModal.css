@@ -14,17 +14,27 @@
     border-radius:15px;
 }
 
-.modal h2{
-    margin-bottom:20px;
+.modal h2 {
+    margin-bottom: 20px;
+    color: #0f172a;
+    font-size: 28px;
+    font-weight: 700;
 }
 
-.modal input{
-    width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    font-size:15px;
+.modal input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #1e293b;
+  color: white;
+  outline: none;
+}
+
+.modal input::placeholder {
+  color: var(--color-text-muted);
 }
 
 .modal-buttons{
@@ -49,4 +59,22 @@
     padding:10px 20px;
     border-radius:8px;
     cursor:pointer;
+}
+
+.modal select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #1e293b;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+.modal select:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
 }

@@ -38,6 +38,17 @@ function AddIncomeModal({
     setShowModal(false);
   };
 
+  const categories = [
+  "Salary",
+  "Freelancing",
+  "Business",
+  "Investment",
+  "Bonus",
+  "Gift",
+  "Rental Income",
+  "Other",
+];
+
   return (
     <div className="modal-overlay">
       <div className="modal">
@@ -57,13 +68,18 @@ function AddIncomeModal({
           onChange={(e) => setAmount(e.target.value)}
         />
 
-        <input
-          type="text"
-          placeholder="Category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        />
+        <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="">Select Category</option>
 
+            {categories.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
         <input
           type="date"
           value={date}

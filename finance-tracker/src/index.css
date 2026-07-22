@@ -75,6 +75,13 @@ body {
   min-height: 100vh;
 }
 
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
 #root {
   min-height: 100vh;
 }
