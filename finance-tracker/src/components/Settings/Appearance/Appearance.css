@@ -17,7 +17,6 @@
     padding:18px 0;
     border-bottom:1px solid #e5e7eb;
 }
-
 .setting-row:last-child{
     border-bottom:none;
 }
@@ -34,13 +33,30 @@
 }
 
 .setting-row select{
-    padding:10px 14px;
-    border:1px solid #d1d5db;
+    width:290px;
+    padding:10px 12px;
+    border:1px solid #475569;
     border-radius:8px;
-    outline:none;
+    background:#1e293b;
+    color:white;
+    font-size:15px;
     cursor:pointer;
+    outline:none;
+    transition:.3s;
 }
 
+.setting-row select:hover{
+    background:#334155;
+}
+
+.setting-row select:focus{
+    border-color:#22c55e;
+}
+
+.setting-row option{
+    background:#334155;
+    color:white;
+}
 /* Toggle Switch */
 
 .switch{
