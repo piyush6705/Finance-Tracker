@@ -1,0 +1,81 @@
+.preferences-card{
+    background:#ffffff;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.preferences-card h2{
+    margin-bottom:25px;
+    color:#0f172a;
+}
+
+.preference-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.preference-row:last-child{
+    border-bottom:none;
+}
+
+.preference-row h3{
+    color:#0f172a;
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.preference-row p{
+    color:#64748b;
+    font-size:14px;
+}
+
+.preference-row select{
+    width:240px;
+    padding:10px 12px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    outline:none;
+    cursor:pointer;
+    background:#fff;
+    font-size:15px;
+}
+
+.preference-row select:focus{
+    border-color:#22c55e;
+}
+
+@media(max-width:768px){
+
+.preference-row{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.preference-row select{
+    width:100%;
+    
+    padding:10px 14px;
+    border:1px solid #475569;
+    border-radius:8px;
+    background:#475569;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    outline:none;
+    transition:.3s;
+}
+
+.preference-row select:hover{
+    background:#334155;
+}
+
+.preference-row select:focus{
+    border-color:#22c55e;
+    background:#334155;
+}
+}
