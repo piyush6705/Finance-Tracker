@@ -1,6 +1,6 @@
 import "./ProfileCard.css";
 
-function ProfileCard() {
+function ProfileCard({ setShowModal }) {
   const user = {
     name: "Piyush Sharma",
     email: "piyush@example.com",
@@ -27,9 +27,12 @@ function ProfileCard() {
 
       </div>
 
-      <button className="edit-profile-btn">
-        Edit Profile
-      </button>
+      <button
+      className="edit-profile-btn"
+      onClick={() => setShowModal(true)}
+    >
+      Edit Profile
+    </button>
 
     </div>
   );
