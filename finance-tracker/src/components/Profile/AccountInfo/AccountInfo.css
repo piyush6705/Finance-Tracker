@@ -1,0 +1,48 @@
+.account-info-card{
+    background:#ffffff;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.account-info-card h2{
+    margin-bottom:25px;
+    color:#0f172a;
+}
+
+.account-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.account-item{
+    background:#f8fafc;
+    padding:18px;
+    border-radius:10px;
+}
+
+.account-item span{
+    display:block;
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.account-item p{
+    color:#0f172a;
+    font-size:18px;
+    font-weight:600;
+}
+
+.status-active{
+    color:#22c55e !important;
+}
+
+@media(max-width:768px){
+
+.account-grid{
+    grid-template-columns:1fr;
+}
+
+}
