@@ -1,0 +1,49 @@
+.financial-card{
+    background:#ffffff;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.financial-card h2{
+    margin-bottom:25px;
+    color:#0f172a;
+}
+
+.financial-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.financial-box{
+    background:#f8fafc;
+    padding:22px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.financial-box:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.financial-box span{
+    display:block;
+    color:#64748b;
+    margin-bottom:10px;
+    font-size:15px;
+}
+
+.financial-box h3{
+    color:#22c55e;
+    font-size:30px;
+}
+
+@media(max-width:768px){
+
+.financial-grid{
+    grid-template-columns:1fr;
+}
+
+}
