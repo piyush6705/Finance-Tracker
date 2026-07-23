@@ -4,6 +4,7 @@ import Appearance from "../../components/Settings/Appearance/Appearance";
 import Preferences from "../../components/Settings/Preferences/Preferences";
 import Notifications from "../../components/Settings/Notifications/Notifications";
 import DataManagement from "../../components/Settings/DataManagement/DataManagement";
+import About from "../../components/Settings/About/About";
 
 function Settings() {
   return (
@@ -17,6 +18,8 @@ function Settings() {
         <Preferences />
         <Notifications />
         <DataManagement />
+        <About />
+        
       </div>
 
     </Layout>
