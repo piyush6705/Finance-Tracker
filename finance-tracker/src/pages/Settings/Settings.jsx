@@ -3,6 +3,7 @@ import "./Settings.css";
 import Appearance from "../../components/Settings/Appearance/Appearance";
 import Preferences from "../../components/Settings/Preferences/Preferences";
 import Notifications from "../../components/Settings/Notifications/Notifications";
+import DataManagement from "../../components/Settings/DataManagement/DataManagement";
 
 function Settings() {
   return (
@@ -15,6 +16,7 @@ function Settings() {
         <Appearance />
         <Preferences />
         <Notifications />
+        <DataManagement />
       </div>
 
     </Layout>
