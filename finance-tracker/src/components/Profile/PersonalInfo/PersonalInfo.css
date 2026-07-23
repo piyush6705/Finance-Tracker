@@ -1,0 +1,44 @@
+.personal-info-card{
+    background:#fff;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.personal-info-card h2{
+    margin-bottom:25px;
+    color:#0f172a;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.info-item{
+    background:#f8fafc;
+    padding:18px;
+    border-radius:10px;
+}
+
+.info-item span{
+    display:block;
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.info-item p{
+    font-size:18px;
+    font-weight:600;
+    color:#0f172a;
+}
+
+@media(max-width:768px){
+
+.info-grid{
+    grid-template-columns:1fr;
+}
+
+}
