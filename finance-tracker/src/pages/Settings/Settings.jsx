@@ -20,6 +20,7 @@ function Settings() {
         <DataManagement />
         <About />
         
+        
       </div>
 
     </Layout>
