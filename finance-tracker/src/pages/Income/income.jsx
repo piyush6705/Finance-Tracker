@@ -9,6 +9,8 @@ import "./Income.css";
 function Income() {
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [editingIncome, setEditingIncome] = useState(null);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const [incomes, setIncomes] = useState(() => {
     const savedIncome = localStorage.getItem("incomes");
@@ -58,9 +60,11 @@ function Income() {
       />
 
       <IncomeList
-        incomes={incomes}
-        search={search}
-        setIncomes={setIncomes}
+          incomes={incomes}
+          search={search}
+          setIncomes={setIncomes}
+          setEditingIncome={setEditingIncome}
+          setShowEditModal={setShowEditModal}
       />
 
       <AddIncomeModal

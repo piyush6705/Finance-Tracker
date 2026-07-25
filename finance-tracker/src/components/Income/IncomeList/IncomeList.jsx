@@ -5,6 +5,8 @@ function IncomeList({
   incomes,
   search,
   setIncomes,
+  setEditingIncome,
+  setShowEditModal,
 }) {
 
   const filteredIncome = incomes.filter((income) =>
@@ -34,7 +36,10 @@ function IncomeList({
           amount={income.amount}
           category={income.category}
           date={income.date}
-          onEdit={() => alert(`Edit ${income.title}`)}
+          onEdit={() => {
+            setEditingIncome(income);
+            setShowEditModal(true);
+          }}
           onDelete={() => handleDelete(income.id)}
         />
 
