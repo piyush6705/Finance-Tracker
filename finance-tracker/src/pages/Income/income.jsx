@@ -13,31 +13,33 @@ function Income() {
   const [incomes, setIncomes] = useState(() => {
     const savedIncome = localStorage.getItem("incomes");
 
-    return savedIncome
-      ? JSON.parse(savedIncome)
-      : [
-          {
-            id: 1,
-            title: "Salary",
-            amount: 50000,
-            category: "Job",
-            date: "22 Jul 2026",
-          },
-          {
-            id: 2,
-            title: "Freelancing",
-            amount: 12000,
-            category: "Business",
-            date: "20 Jul 2026",
-          },
-          {
-            id: 3,
-            title: "Interest",
-            amount: 2500,
-            category: "Investment",
-            date: "18 Jul 2026",
-          },
-        ];
+    if (savedIncome) {
+      return JSON.parse(savedIncome);
+    }
+
+    return [
+      {
+        id: 1,
+        title: "Salary",
+        amount: 50000,
+        category: "Job",
+        date: "22 Jul 2026",
+      },
+      {
+        id: 2,
+        title: "Freelancing",
+        amount: 12000,
+        category: "Business",
+        date: "20 Jul 2026",
+      },
+      {
+        id: 3,
+        title: "Interest",
+        amount: 2500,
+        category: "Investment",
+        date: "18 Jul 2026",
+      },
+    ];
   });
 
   useEffect(() => {
