@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Layout from "../../components/Layout/Layout";
 import SearchIncome from "../../components/Income/SearchIncome/SearchIncome";
@@ -10,36 +10,44 @@ function Income() {
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  const [incomes, setIncomes] = useState([
-    {
-      id: 1,
-      title: "Salary",
-      amount: 50000,
-      category: "Job",
-      date: "22 Jul 2026",
-    },
-    {
-      id: 2,
-      title: "Freelancing",
-      amount: 12000,
-      category: "Business",
-      date: "20 Jul 2026",
-    },
-    {
-      id: 3,
-      title: "Interest",
-      amount: 2500,
-      category: "Investment",
-      date: "18 Jul 2026",
-    },
-  ]);
+  const [incomes, setIncomes] = useState(() => {
+    const savedIncome = localStorage.getItem("incomes");
+
+    return savedIncome
+      ? JSON.parse(savedIncome)
+      : [
+          {
+            id: 1,
+            title: "Salary",
+            amount: 50000,
+            category: "Job",
+            date: "22 Jul 2026",
+          },
+          {
+            id: 2,
+            title: "Freelancing",
+            amount: 12000,
+            category: "Business",
+            date: "20 Jul 2026",
+          },
+          {
+            id: 3,
+            title: "Interest",
+            amount: 2500,
+            category: "Investment",
+            date: "18 Jul 2026",
+          },
+        ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("incomes", JSON.stringify(incomes));
+  }, [incomes]);
 
   return (
     <Layout>
       <div className="income-header">
         <h1>Income</h1>
-
-        
       </div>
 
       <SearchIncome
@@ -50,20 +58,21 @@ function Income() {
       <IncomeList
         incomes={incomes}
         search={search}
+        setIncomes={setIncomes}
       />
 
       <AddIncomeModal
         showModal={showModal}
         setShowModal={setShowModal}
-        incomes={incomes}
         setIncomes={setIncomes}
       />
+
       <button
-          className="add-income-btn"
-          onClick={() => setShowModal(true)}
-        >
-          + Add Income
-        </button>
+        className="add-income-btn"
+        onClick={() => setShowModal(true)}
+      >
+        + Add Income
+      </button>
     </Layout>
   );
 }

@@ -4,7 +4,6 @@ import "./AddIncomeModal.css";
 function AddIncomeModal({
   showModal,
   setShowModal,
-  incomes,
   setIncomes,
 }) {
   const [title, setTitle] = useState("");
@@ -13,6 +12,17 @@ function AddIncomeModal({
   const [date, setDate] = useState("");
 
   if (!showModal) return null;
+
+  const categories = [
+    "Salary",
+    "Freelancing",
+    "Business",
+    "Investment",
+    "Bonus",
+    "Gift",
+    "Rental Income",
+    "Other",
+  ];
 
   const handleSave = () => {
     if (!title || !amount || !category || !date) {
@@ -28,7 +38,7 @@ function AddIncomeModal({
       date,
     };
 
-    setIncomes([...incomes, newIncome]);
+    setIncomes((prev) => [...prev, newIncome]);
 
     setTitle("");
     setAmount("");
@@ -38,20 +48,18 @@ function AddIncomeModal({
     setShowModal(false);
   };
 
-  const categories = [
-  "Salary",
-  "Freelancing",
-  "Business",
-  "Investment",
-  "Bonus",
-  "Gift",
-  "Rental Income",
-  "Other",
-];
+  const handleCancel = () => {
+    setTitle("");
+    setAmount("");
+    setCategory("");
+    setDate("");
+    setShowModal(false);
+  };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
+
         <h2>Add Income</h2>
 
         <input
@@ -69,17 +77,21 @@ function AddIncomeModal({
         />
 
         <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="">Select Category</option>
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="">Select Category</option>
 
-            {categories.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
+          {categories.map((item) => (
+            <option
+              key={item}
+              value={item}
+            >
+              {item}
+            </option>
+          ))}
+        </select>
+
         <input
           type="date"
           value={date}
@@ -87,16 +99,10 @@ function AddIncomeModal({
         />
 
         <div className="modal-buttons">
+
           <button
             className="cancel-btn"
-            onClick={() => {
-              setShowModal(false);
-
-              setTitle("");
-              setAmount("");
-              setCategory("");
-              setDate("");
-            }}
+            onClick={handleCancel}
           >
             Cancel
           </button>
@@ -107,7 +113,9 @@ function AddIncomeModal({
           >
             Save
           </button>
+
         </div>
+
       </div>
     </div>
   );

@@ -2,15 +2,16 @@ import IncomeCard from "../IncomeCard/IncomeCard";
 import "./IncomeList.css";
 
 function IncomeList({ incomes, search }) {
+
   const filteredIncome = incomes.filter((income) =>
-    income.title
-      .toLowerCase()
-      .includes(search.toLowerCase())
+    income.title.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="income-list">
+
       {filteredIncome.map((income) => (
+
         <IncomeCard
           key={income.id}
           title={income.title}
@@ -20,7 +21,9 @@ function IncomeList({ incomes, search }) {
           onEdit={() => alert(`Edit ${income.title}`)}
           onDelete={() => alert(`Delete ${income.title}`)}
         />
+
       ))}
+
     </div>
   );
 }
