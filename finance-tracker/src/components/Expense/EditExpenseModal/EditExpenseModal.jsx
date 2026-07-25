@@ -1,9 +1,10 @@
-import { useState } from "react";
-import "./AddExpenseModal.css";
+import { useState, useEffect } from "react";
+import "./EditExpenseModal.css";
 
-function AddExpenseModal({
-  showModal,
-  setShowModal,
+function EditExpenseModal({
+  showEditModal,
+  setShowEditModal,
+  editingExpense,
   setExpenses,
 }) {
   const [title, setTitle] = useState("");
@@ -11,7 +12,16 @@ function AddExpenseModal({
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
 
-  if (!showModal) return null;
+  useEffect(() => {
+    if (editingExpense) {
+      setTitle(editingExpense.title);
+      setAmount(editingExpense.amount);
+      setCategory(editingExpense.category);
+      setDate(editingExpense.date);
+    }
+  }, [editingExpense]);
+
+  if (!showEditModal) return null;
 
   const categories = [
     "Food",
@@ -25,44 +35,38 @@ function AddExpenseModal({
     "Other",
   ];
 
-  const handleSave = () => {
+  const handleUpdate = () => {
     if (!title || !amount || !category || !date) {
       alert("Please fill all fields.");
       return;
     }
 
-    const newExpense = {
-      id: Date.now(),
-      title,
-      amount: Number(amount),
-      category,
-      date,
-    };
+    setExpenses((prev) =>
+      prev.map((expense) =>
+        expense.id === editingExpense.id
+          ? {
+              ...expense,
+              title,
+              amount: Number(amount),
+              category,
+              date,
+            }
+          : expense
+      )
+    );
 
-    setExpenses((prev) => [...prev, newExpense]);
-
-    setTitle("");
-    setAmount("");
-    setCategory("");
-    setDate("");
-
-    setShowModal(false);
+    setShowEditModal(false);
   };
 
   const handleCancel = () => {
-    setTitle("");
-    setAmount("");
-    setCategory("");
-    setDate("");
-
-    setShowModal(false);
+    setShowEditModal(false);
   };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
 
-        <h2>Add Expense</h2>
+        <h2>Edit Expense</h2>
 
         <input
           type="text"
@@ -101,7 +105,6 @@ function AddExpenseModal({
         />
 
         <div className="modal-buttons">
-
           <button
             className="cancel-btn"
             onClick={handleCancel}
@@ -111,11 +114,10 @@ function AddExpenseModal({
 
           <button
             className="save-btn"
-            onClick={handleSave}
+            onClick={handleUpdate}
           >
-            Save
+            Update
           </button>
-
         </div>
 
       </div>
@@ -123,4 +125,4 @@ function AddExpenseModal({
   );
 }
 
-export default AddExpenseModal;
+export default EditExpenseModal;

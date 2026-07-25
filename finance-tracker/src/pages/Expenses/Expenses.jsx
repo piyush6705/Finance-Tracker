@@ -1,39 +1,25 @@
 import { useState } from "react";
 
-import "./Expenses.css";
-
 import Layout from "../../components/Layout/Layout";
 import SearchExpense from "../../components/Expense/SearchExpense/SearchExpense";
 import ExpenseList from "../../components/Expense/ExpenseList/ExpenseList";
 import AddExpenseModal from "../../components/Expense/AddExpenseModal/AddExpenseModal";
+import EditExpenseModal from "../../components/Expense/EditExpenseModal/EditExpenseModal";
+
+import { useFinance } from "../../hooks/useFinance";
+
+import "./Expenses.css";
 
 function Expenses() {
   const [search, setSearch] = useState("");
+
   const [showModal, setShowModal] = useState(false);
 
-  const [expenses, setExpenses] = useState([
-    {
-      id: 1,
-      title: "Groceries",
-      amount: 2500,
-      category: "Food",
-      date: "22 Jul 2026",
-    },
-    {
-      id: 2,
-      title: "House Rent",
-      amount: 15000,
-      category: "Rent",
-      date: "20 Jul 2026",
-    },
-    {
-      id: 3,
-      title: "Movie",
-      amount: 800,
-      category: "Entertainment",
-      date: "18 Jul 2026",
-    },
-  ]);
+  const [showEditModal, setShowEditModal] = useState(false);
+
+  const [editingExpense, setEditingExpense] = useState(null);
+
+  const { expenses, setExpenses } = useFinance();
 
   return (
     <Layout>
@@ -49,12 +35,21 @@ function Expenses() {
       <ExpenseList
         expenses={expenses}
         search={search}
+        setExpenses={setExpenses}
+        setEditingExpense={setEditingExpense}
+        setShowEditModal={setShowEditModal}
       />
 
       <AddExpenseModal
         showModal={showModal}
         setShowModal={setShowModal}
-        expenses={expenses}
+        setExpenses={setExpenses}
+      />
+
+      <EditExpenseModal
+        showEditModal={showEditModal}
+        setShowEditModal={setShowEditModal}
+        editingExpense={editingExpense}
         setExpenses={setExpenses}
       />
 
