@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { useFinance } from "../../hooks/useFinance";
 import Layout from "../../components/Layout/Layout";
 import SearchIncome from "../../components/Income/SearchIncome/SearchIncome";
 import IncomeList from "../../components/Income/IncomeList/IncomeList";
@@ -9,45 +9,14 @@ import EditIncomeModal from "../../components/Income/EditIncomeModal/EditIncomeM
 
 function Income() {
   const [search, setSearch] = useState("");
+
   const [showModal, setShowModal] = useState(false);
-  const [editingIncome, setEditingIncome] = useState(null);
+
   const [showEditModal, setShowEditModal] = useState(false);
 
-  const [incomes, setIncomes] = useState(() => {
-    const savedIncome = localStorage.getItem("incomes");
+  const [editingIncome, setEditingIncome] = useState(null);
 
-    if (savedIncome) {
-      return JSON.parse(savedIncome);
-    }
-
-    return [
-      {
-        id: 1,
-        title: "Salary",
-        amount: 50000,
-        category: "Job",
-        date: "22 Jul 2026",
-      },
-      {
-        id: 2,
-        title: "Freelancing",
-        amount: 12000,
-        category: "Business",
-        date: "20 Jul 2026",
-      },
-      {
-        id: 3,
-        title: "Interest",
-        amount: 2500,
-        category: "Investment",
-        date: "18 Jul 2026",
-      },
-    ];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("incomes", JSON.stringify(incomes));
-  }, [incomes]);
+  const { incomes, setIncomes } = useFinance();
 
   return (
     <Layout>
@@ -61,11 +30,11 @@ function Income() {
       />
 
       <IncomeList
-          incomes={incomes}
-          search={search}
-          setIncomes={setIncomes}
-          setEditingIncome={setEditingIncome}
-          setShowEditModal={setShowEditModal}
+        incomes={incomes}
+        search={search}
+        setIncomes={setIncomes}
+        setEditingIncome={setEditingIncome}
+        setShowEditModal={setShowEditModal}
       />
 
       <AddIncomeModal
@@ -73,6 +42,7 @@ function Income() {
         setShowModal={setShowModal}
         setIncomes={setIncomes}
       />
+
       <EditIncomeModal
         showEditModal={showEditModal}
         setShowEditModal={setShowEditModal}
