@@ -5,6 +5,7 @@ import SearchIncome from "../../components/Income/SearchIncome/SearchIncome";
 import IncomeList from "../../components/Income/IncomeList/IncomeList";
 import AddIncomeModal from "../../components/Income/AddIncomeModal/AddIncomeModel";
 import "./Income.css";
+import EditIncomeModal from "../../components/Income/EditIncomeModal/EditIncomeModal";
 
 function Income() {
   const [search, setSearch] = useState("");
@@ -70,6 +71,12 @@ function Income() {
       <AddIncomeModal
         showModal={showModal}
         setShowModal={setShowModal}
+        setIncomes={setIncomes}
+      />
+      <EditIncomeModal
+        showEditModal={showEditModal}
+        setShowEditModal={setShowEditModal}
+        editingIncome={editingIncome}
         setIncomes={setIncomes}
       />
 
