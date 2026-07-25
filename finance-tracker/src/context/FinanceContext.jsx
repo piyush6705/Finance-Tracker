@@ -4,34 +4,68 @@ export const FinanceContext = createContext();
 
 export function FinanceProvider({ children }) {
 
-  // ---------------- Income ----------------
+// Income
+const addIncome = (income) => {
+  setIncomes((prev) => [...prev, income]);
+};
 
-  const [incomes, setIncomes] = useState(() => {
-    const saved = localStorage.getItem("incomes");
-    return saved ? JSON.parse(saved) : [];
-  });
+const deleteIncome = (id) => {
+  setIncomes((prev) =>
+    prev.filter((income) => income.id !== id)
+  );
+};
 
-  useEffect(() => {
-    localStorage.setItem("incomes", JSON.stringify(incomes));
-  }, [incomes]);
+const editIncome = (updatedIncome) => {
+  setIncomes((prev) =>
+    prev.map((income) =>
+      income.id === updatedIncome.id
+        ? updatedIncome
+        : income
+    )
+  );
+};
 
-  // ---------------- Expenses ----------------
+// Expense
+const addExpense = (expense) => {
+  setExpenses((prev) => [...prev, expense]);
+};
 
-  const [expenses, setExpenses] = useState(() => {
-    const saved = localStorage.getItem("expenses");
-    return saved ? JSON.parse(saved) : [];
-  });
+const deleteExpense = (id) => {
+  setExpenses((prev) =>
+    prev.filter((expense) => expense.id !== id)
+  );
+};
 
-  useEffect(() => {
-    localStorage.setItem("expenses", JSON.stringify(expenses));
-  }, [expenses]);
+const editExpense = (updatedExpense) => {
+  setExpenses((prev) =>
+    prev.map((expense) =>
+      expense.id === updatedExpense.id
+        ? updatedExpense
+        : expense
+    )
+  );
+};
 
-  // ---------------- Budgets ----------------
+// Budget
+const addBudget = (budget) => {
+  setBudgets((prev) => [...prev, budget]);
+};
 
-  const [budgets, setBudgets] = useState(() => {
-    const saved = localStorage.getItem("budgets");
-    return saved ? JSON.parse(saved) : [];
-  });
+const deleteBudget = (id) => {
+  setBudgets((prev) =>
+    prev.filter((budget) => budget.id !== id)
+  );
+};
+
+const editBudget = (updatedBudget) => {
+  setBudgets((prev) =>
+    prev.map((budget) =>
+      budget.id === updatedBudget.id
+        ? updatedBudget
+        : budget
+    )
+  );
+};
 
   useEffect(() => {
     localStorage.setItem("budgets", JSON.stringify(budgets));
@@ -41,13 +75,20 @@ export function FinanceProvider({ children }) {
     <FinanceContext.Provider
       value={{
         incomes,
-        setIncomes,
-
         expenses,
-        setExpenses,
-
         budgets,
-        setBudgets,
+
+        addIncome,
+        editIncome,
+        deleteIncome,
+
+        addExpense,
+        editExpense,
+        deleteExpense,
+
+        addBudget,
+        editBudget,
+        deleteBudget,
       }}
     >
       {children}
