@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import "./EditIncomeModal.css";
+import { useFinance } from "../../../hooks/useFinance";
 
 function EditIncomeModal({
   showEditModal,
   setShowEditModal,
   editingIncome,
-  setIncomes,
 }) {
+  const { editIncome } = useFinance();
+
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -40,30 +42,21 @@ function EditIncomeModal({
       return;
     }
 
-    setIncomes((prev) =>
-      prev.map((income) =>
-        income.id === editingIncome.id
-          ? {
-              ...income,
-              title,
-              amount: Number(amount),
-              category,
-              date,
-            }
-          : income
-      )
-    );
+    const updatedIncome = {
+      ...editingIncome,
+      title,
+      amount: Number(amount),
+      category,
+      date,
+    };
 
-    setShowEditModal(false);
-  };
+    editIncome(updatedIncome);
 
-  const handleCancel = () => {
     setShowEditModal(false);
   };
 
   return (
     <div className="modal-overlay">
-
       <div className="modal">
 
         <h2>Edit Income</h2>
@@ -89,10 +82,7 @@ function EditIncomeModal({
           <option value="">Select Category</option>
 
           {categories.map((item) => (
-            <option
-              key={item}
-              value={item}
-            >
+            <option key={item} value={item}>
               {item}
             </option>
           ))}
@@ -108,7 +98,7 @@ function EditIncomeModal({
 
           <button
             className="cancel-btn"
-            onClick={handleCancel}
+            onClick={() => setShowEditModal(false)}
           >
             Cancel
           </button>
@@ -123,7 +113,6 @@ function EditIncomeModal({
         </div>
 
       </div>
-
     </div>
   );
 }

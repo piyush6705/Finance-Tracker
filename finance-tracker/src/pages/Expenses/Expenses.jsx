@@ -35,7 +35,6 @@ function Expenses() {
       <ExpenseList
         expenses={expenses}
         search={search}
-        setExpenses={setExpenses}
         setEditingExpense={setEditingExpense}
         setShowEditModal={setShowEditModal}
       />
@@ -43,14 +42,14 @@ function Expenses() {
       <AddExpenseModal
         showModal={showModal}
         setShowModal={setShowModal}
-        setExpenses={setExpenses}
+        
       />
 
       <EditExpenseModal
         showEditModal={showEditModal}
         setShowEditModal={setShowEditModal}
         editingExpense={editingExpense}
-        setExpenses={setExpenses}
+        
       />
 
       <button

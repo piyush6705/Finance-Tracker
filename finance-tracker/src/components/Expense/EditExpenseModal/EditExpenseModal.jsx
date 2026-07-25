@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import "./EditExpenseModal.css";
+import { useFinance } from "../../../hooks/useFinance";
 
 function EditExpenseModal({
   showEditModal,
   setShowEditModal,
   editingExpense,
-  setExpenses,
 }) {
+
+  const { editExpense } = useFinance();
+
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -41,24 +44,16 @@ function EditExpenseModal({
       return;
     }
 
-    setExpenses((prev) =>
-      prev.map((expense) =>
-        expense.id === editingExpense.id
-          ? {
-              ...expense,
-              title,
-              amount: Number(amount),
-              category,
-              date,
-            }
-          : expense
-      )
-    );
+    const updatedExpense = {
+      ...editingExpense,
+      title,
+      amount: Number(amount),
+      category,
+      date,
+    };
 
-    setShowEditModal(false);
-  };
+    editExpense(updatedExpense);
 
-  const handleCancel = () => {
     setShowEditModal(false);
   };
 
@@ -105,9 +100,10 @@ function EditExpenseModal({
         />
 
         <div className="modal-buttons">
+
           <button
             className="cancel-btn"
-            onClick={handleCancel}
+            onClick={() => setShowEditModal(false)}
           >
             Cancel
           </button>
@@ -118,6 +114,7 @@ function EditExpenseModal({
           >
             Update
           </button>
+
         </div>
 
       </div>

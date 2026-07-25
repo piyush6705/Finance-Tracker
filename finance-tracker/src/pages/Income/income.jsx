@@ -32,22 +32,20 @@ function Income() {
       <IncomeList
         incomes={incomes}
         search={search}
-        setIncomes={setIncomes}
         setEditingIncome={setEditingIncome}
         setShowEditModal={setShowEditModal}
       />
 
       <AddIncomeModal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        setIncomes={setIncomes}
-      />
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
 
       <EditIncomeModal
         showEditModal={showEditModal}
         setShowEditModal={setShowEditModal}
         editingIncome={editingIncome}
-        setIncomes={setIncomes}
+        
       />
 
       <button

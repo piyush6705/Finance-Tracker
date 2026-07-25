@@ -1,13 +1,15 @@
 import IncomeCard from "../IncomeCard/IncomeCard";
 import "./IncomeList.css";
+import { useFinance } from "../../../hooks/useFinance";
 
 function IncomeList({
   incomes,
   search,
-  setIncomes,
   setEditingIncome,
   setShowEditModal,
 }) {
+
+  const { deleteIncome } = useFinance();
 
   const filteredIncome = incomes.filter((income) =>
     income.title.toLowerCase().includes(search.toLowerCase())
@@ -20,9 +22,7 @@ function IncomeList({
 
     if (!confirmDelete) return;
 
-    setIncomes((prev) =>
-      prev.filter((income) => income.id !== id)
-    );
+    deleteIncome(id);
   };
 
   return (
@@ -36,10 +36,12 @@ function IncomeList({
           amount={income.amount}
           category={income.category}
           date={income.date}
+
           onEdit={() => {
             setEditingIncome(income);
             setShowEditModal(true);
           }}
+
           onDelete={() => handleDelete(income.id)}
         />
 

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import "./AddExpenseModal.css";
+import { useFinance } from "../../../hooks/useFinance";
 
 function AddExpenseModal({
   showModal,
   setShowModal,
-  setExpenses,
 }) {
+
+  const { addExpense } = useFinance();
+
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -39,7 +42,7 @@ function AddExpenseModal({
       date,
     };
 
-    setExpenses((prev) => [...prev, newExpense]);
+    addExpense(newExpense);
 
     setTitle("");
     setAmount("");

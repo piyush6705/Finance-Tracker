@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./AddIncomeModal.css";
+import { useFinance } from "../../../hooks/useFinance";
 
 function AddIncomeModal({
   showModal,
   setShowModal,
-  setIncomes,
 }) {
+  const { addIncome } = useFinance();
+
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
@@ -38,7 +40,7 @@ function AddIncomeModal({
       date,
     };
 
-    setIncomes((prev) => [...prev, newIncome]);
+    addIncome(newIncome);
 
     setTitle("");
     setAmount("");
