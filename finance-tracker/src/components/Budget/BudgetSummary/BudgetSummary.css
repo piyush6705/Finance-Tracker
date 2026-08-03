@@ -1,53 +1,84 @@
-.budget-summary {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 22px;
-    margin: 30px 0;
+.budget-summary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin:30px 0;
 }
 
-.summary-card {
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 28px;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-    transition: all .3s ease;
-    border: 1px solid #e5e7eb;
+.summary-card{
+    background:#fff;
+    border-radius:18px;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+    transition:.3s;
 }
 
-.summary-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+.summary-card:hover{
+    transform:translateY(-6px);
 }
 
-.summary-card h3 {
-    font-size: 15px;
-    color: #64748b;
-    font-weight: 600;
-    margin-bottom: 14px;
-    text-transform: uppercase;
-    letter-spacing: .5px;
+.summary-icon{
+    width:78px;
+    height:78px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:32px;
+    flex-shrink:0;
 }
 
-.summary-card h2 {
-    font-size: 40px;
-    font-weight: 700;
-    color: #0f172a;
-    margin: 0;
-    word-break: break-word;
+.green{
+    background:#22c55e;
 }
 
-@media (max-width:768px){
+.blue{
+    background:#3b82f6;
+}
 
-    .budget-summary{
-        grid-template-columns:1fr;
-    }
+.orange{
+    background:#f59e0b;
+}
 
-    .summary-card{
-        padding:24px;
-    }
+.summary-info{
+    flex:1;
+}
 
-    .summary-card h2{
-        font-size:34px;
-    }
+.summary-info h3{
+    color:#64748b;
+    font-size:22px;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.summary-info h2{
+    color:#0f172a;
+    font-size:44px;
+    font-weight:700;
+}
+
+@media(max-width:768px){
+
+.summary-card{
+    padding:22px;
+}
+
+.summary-icon{
+    width:65px;
+    height:65px;
+    font-size:28px;
+}
+
+.summary-info h2{
+    font-size:34px;
+}
+
+.summary-info h3{
+    font-size:18px;
+}
 
 }
