@@ -65,3 +65,9 @@
     color: #0a1632;
     font-weight: 650;
 }
+.empty-chart{
+    text-align:center;
+    color:#64748b;
+    padding:60px 0;
+    font-size:18px;
+}

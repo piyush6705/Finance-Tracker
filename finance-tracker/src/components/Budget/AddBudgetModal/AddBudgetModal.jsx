@@ -9,7 +9,7 @@ function AddBudgetModal({
   const { addBudget } = useFinance();
 
   const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState("");
+  const [limit, setLimit] = useState("");
 
   if (!showModal) return null;
 
@@ -26,7 +26,7 @@ function AddBudgetModal({
   ];
 
   const handleSave = () => {
-    if (!category || !amount) {
+    if (!category || !limit) {
       alert("Please fill all fields.");
       return;
     }
@@ -34,19 +34,20 @@ function AddBudgetModal({
     const newBudget = {
       id: Date.now(),
       category,
-      amount: Number(amount),
+      spent: 0,
+      limit: Number(limit),
     };
 
     addBudget(newBudget);
 
     setCategory("");
-    setAmount("");
+    setLimit("");
     setShowModal(false);
   };
 
   const handleCancel = () => {
     setCategory("");
-    setAmount("");
+    setLimit("");
     setShowModal(false);
   };
 
@@ -63,7 +64,10 @@ function AddBudgetModal({
           <option value="">Select Category</option>
 
           {categories.map((item) => (
-            <option key={item} value={item}>
+            <option
+              key={item}
+              value={item}
+            >
               {item}
             </option>
           ))}
@@ -71,9 +75,9 @@ function AddBudgetModal({
 
         <input
           type="number"
-          placeholder="Budget Amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Budget Limit"
+          value={limit}
+          onChange={(e) => setLimit(e.target.value)}
         />
 
         <div className="modal-buttons">

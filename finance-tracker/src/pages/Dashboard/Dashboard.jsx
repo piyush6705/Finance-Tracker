@@ -1,71 +1,92 @@
+import { useContext } from "react";
 
 import Layout from "../../components/Layout/Layout";
-import SummaryCard from "../../components/Dashboard/SummaryCard";
-import "./Dashboard.css";
-import {
-  FaArrowUp,
-  FaArrowDown,
-  FaWallet,
-  FaPiggyBank,
-} from "react-icons/fa";
-import RecentTransactions from "../../components/Dashboard/RecentTransactions";
-import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
-import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/IncomeExpenseChart";
+
+import DashboardSummary from "../../components/Dashboard/DashboardSummary/DashboardSummary";
+import RecentTransactions from "../../components/Dashboard/RecentTransactions/RecentTransactions";
 import SavingsGoal from "../../components/Dashboard/SavingsGoal/SavingsGoal";
 import BudgetProgress from "../../components/Dashboard/BudgetProgress/BudgetProgress";
 
-const summaryData = [
-  {
-    title: "Income",
-    amount: 50000,
-    icon: <FaArrowUp />,
-    color: "#4CAF50",
-  },
-  {
-    title: "Expenses",
-    amount: 25000,
-    icon: <FaArrowDown />,
-    color: "#F44336",
-  },
-  {
-    title: "Balance",
-    amount: 25000,
-    icon: <FaWallet />,
-    color: "#2196F3",
-  },
-  {
-    title: "Savings",
-    amount: 10000,
-    icon: <FaPiggyBank />,
-    color: "#FF9800",
-  },
-];
+import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
+import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/IncomeExpenseChart";
+
+import { FinanceContext } from "../../context/FinanceContext";
+
+import "./Dashboard.css";
 
 function Dashboard() {
+
+  const {
+    incomes,
+    expenses,
+    budgets,
+  } = useContext(FinanceContext);
+
+  // ================= Totals =================
+
+  const totalIncome = incomes.reduce(
+    (sum, income) => sum + income.amount,
+    0
+  );
+
+  const totalExpense = expenses.reduce(
+    (sum, expense) => sum + expense.amount,
+    0
+  );
+
+  const balance = totalIncome - totalExpense;
+
+  const savings = balance;
+
+  // Supports both old (amount) and new (limit) budget format
+  const totalBudget = budgets.reduce(
+    (sum, budget) =>
+      sum + (budget.limit ?? budget.amount ?? 0),
+    0
+  );
+
   return (
     <Layout>
+
       <div className="dashboard">
-        <div className="cards">
-          {summaryData.map((card) => (
-            <SummaryCard
-              key={card.title}
-              title={card.title}
-              amount={card.amount}
-              icon={card.icon}
-              color={card.color}
-            />
-          ))}
-        </div>
+
+        <DashboardSummary
+          totalIncome={totalIncome}
+          totalExpense={totalExpense}
+          balance={balance}
+          savings={savings}
+        />
+
         <div className="dashboard-grid">
-          <RecentTransactions />
-          <ExpensePieChart />
+
+          <RecentTransactions
+            incomes={incomes}
+            expenses={expenses}
+          />
+
+          <ExpensePieChart
+            expenses={expenses}
+          />
+
         </div>
-        <IncomeExpenseChart />
-        <SavingsGoal />
-        <BudgetProgress />
+
+        <IncomeExpenseChart
+          incomes={incomes}
+          expenses={expenses}
+        />
+
+        <SavingsGoal
+          savings={savings}
+        />
+
+        <BudgetProgress
+          budgets={budgets}
+          totalBudget={totalBudget}
+        />
 
       </div>
-     </Layout>
+
+    </Layout>
   );
 }
 

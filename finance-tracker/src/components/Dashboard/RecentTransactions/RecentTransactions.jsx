@@ -1,74 +1,103 @@
 import "./RecentTransactions.css";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
-function RecentTransactions() {
+function RecentTransactions({
+  incomes = [],
+  expenses = [],
+}) {
+
   const transactions = [
-    {
-      id: 1,
-      title: "Salary",
-      amount: 50000,
-      type: "Income",
-      date: "22 Jul 2026",
-    },
-    {
-      id: 2,
-      title: "Rent",
-      amount: 15000,
-      type: "Expense",
-      date: "21 Jul 2026",
-    },
-    {
-      id: 3,
-      title: "Netflix",
-      amount: 499,
-      type: "Expense",
-      date: "20 Jul 2026",
-    },
+
+    ...incomes.map((income) => ({
+      ...income,
+      type: "income",
+    })),
+
+    ...expenses.map((expense) => ({
+      ...expense,
+      type: "expense",
+    })),
+
   ];
 
+  const recentTransactions = transactions
+    .sort((a, b) => b.id - a.id)
+    .slice(0, 5);
+
   return (
-    <div className="transactions-card">
+    <div className="recent-transactions">
 
-<h2>Recent Transactions</h2>
+      <div className="recent-header">
+        <h2>Recent Transactions</h2>
+      </div>
 
-{transactions.map((transaction)=>(
+      {
+        recentTransactions.length === 0 ? (
 
-<div className="transaction" key={transaction.id}>
+          <p className="empty-transactions">
+            No transactions yet.
+          </p>
 
-<div className="transaction-left">
+        ) : (
 
-<h3>{transaction.title}</h3>
+          recentTransactions.map((item) => (
 
-<div className="transaction-details">
+            <div
+              key={item.id}
+              className="transaction-item"
+            >
 
-<p className={transaction.type==="Income" ? "income" : "expense"}>
-{transaction.type}
-</p>
+              <div className="transaction-left">
 
-<p>{transaction.date}</p>
+                <div
+                  className={`transaction-icon ${
+                    item.type === "income"
+                      ? "income-icon"
+                      : "expense-icon"
+                  }`}
+                >
 
-</div>
+                  {
+                    item.type === "income"
+                      ? <FaArrowUp />
+                      : <FaArrowDown />
+                  }
 
-</div>
+                </div>
 
-<div
-className={`transaction-right ${
-transaction.type==="Income"
-? "income-amount"
-: "expense-amount"
-}`}
->
+                <div>
 
-{transaction.type==="Income" ? "+" : "-"}
+                  <h4>{item.title}</h4>
 
-₹{transaction.amount.toLocaleString("en-IN")}
+                  <p>{item.category}</p>
 
-</div>
+                </div>
 
-</div>
+              </div>
 
-))}
+              <div className="transaction-right">
 
-</div>
+                <span
+                  className={
+                    item.type === "income"
+                      ? "income-text"
+                      : "expense-text"
+                  }
+                >
+                  {item.type === "income" ? "+" : "-"}₹
+                  {item.amount.toLocaleString("en-IN")}
+                </span>
+
+              </div>
+
+            </div>
+
+          ))
+
+        )
+      }
+
+    </div>
   );
 }
 

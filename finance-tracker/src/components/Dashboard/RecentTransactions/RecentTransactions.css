@@ -1,93 +1,109 @@
-.transactions-card{
+.recent-transactions{
 
     background:#fff;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    border-radius:18px;
+    padding:25px;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
 
 }
 
-.transactions-card h2{
+.recent-header{
 
     margin-bottom:20px;
-    color:#1e293b;
 
 }
 
-.transaction{
+.recent-header h2{
+
+    color:#0f172a;
+
+}
+
+.transaction-item{
 
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 0;
-    border-bottom:1px solid #e2e8f0;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #f1f5f9;
 
 }
 
-.transaction:last-child{
+.transaction-item:last-child{
 
-    border-bottom:none;
-
-}
-
-.transaction-left h3{
-
-    margin-bottom:8px;
+    border:none;
 
 }
 
-.transaction-details{
+.transaction-left{
 
     display:flex;
-    gap:10px;
     align-items:center;
+    gap:15px;
 
 }
 
-.transaction-right{
+.transaction-icon{
 
-    font-size:22px;
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+}
+
+.income-icon{
+
+    background:#22c55e;
+
+}
+
+.expense-icon{
+
+    background:#ef4444;
+
+}
+
+.transaction-left h4{
+
+    color:#0f172a;
+
+}
+
+.transaction-left p{
+
+    color:#64748b;
+    font-size:14px;
+
+}
+
+.income-text{
+
+    color:#22c55e;
     font-weight:700;
 
 }
 
-.income-amount{
-
-    color:#22c55e;
-
-}
-
-.expense-amount{
+.expense-text{
 
     color:#ef4444;
+    font-weight:700;
 
 }
-.transaction-left h3 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 8px;
-}
 
-.transaction-details p:last-child {
-    color: #64748b;
-    font-size: 15px;
-}
+.empty-transactions{
 
-.income {
-    background: #dcfce7;
-    color: #15803d;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-}
+    text-align:center;
+    color:#94a3b8;
+    padding:30px;
 
-.expense {
-    background: #fee2e2;
-    color: #b91c1c;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
 }
