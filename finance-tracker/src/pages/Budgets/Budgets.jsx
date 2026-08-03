@@ -53,10 +53,8 @@ function Budget() {
       />
 
       <AddBudgetModal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        budgets={budgets}
-        setBudgets={setBudgets}
+          showModal={showModal}
+          setShowModal={setShowModal}
       />
 
       <button
