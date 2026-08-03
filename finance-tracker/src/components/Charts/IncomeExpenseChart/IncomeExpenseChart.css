@@ -1,84 +1,32 @@
-.bar-chart-card {
-  background: #ffffff;
-  border-radius: 16px;
+.income-expense-chart{
 
-  padding: 24px;
+    margin-top:30px;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background:#fff;
 
-  width: 100%;
-  height: 100%;
-  margin-top: 28px;
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+
 }
 
-.bar-chart-card h2 {
-  margin-bottom: 20px;
+.chart-header{
 
-  font-size: 22px;
-  font-weight: 600;
+    margin-bottom:20px;
 
-  color: #1e293b;
 }
 
+.chart-header h2{
 
-/* Responsive chart container */
-.bar-chart-card .recharts-responsive-container {
-  margin-top: 10px;
+    color:#0f172a;
+    margin-bottom:5px;
+
 }
 
+.chart-header p{
 
-/* Axis text */
-.recharts-cartesian-axis-tick-value {
-  fill: #64748b;
-  font-size: 12px;
-}
-
-
-/* Grid lines */
-.recharts-cartesian-grid-horizontal line,
-.recharts-cartesian-grid-vertical line {
-  stroke: #e2e8f0;
-}
-
-
-/* Tooltip */
-.recharts-tooltip-wrapper {
-  outline: none;
-}
-
-.recharts-default-tooltip {
-  background-color: #ffffff !important;
-
-  border: none !important;
-
-  border-radius: 10px;
-
-  padding: 12px !important;
-
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
-
-
-/* Legend */
-.recharts-legend-wrapper {
-  padding-top: 10px;
-}
-
-.recharts-legend-item-text {
-  color: #475569 !important;
-  font-size: 14px;
-}
-
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  .bar-chart-card {
-    padding: 15px;
-  }
-
-  .bar-chart-card h2 {
-    font-size: 18px;
-  }
+    color:#64748b;
 
 }
