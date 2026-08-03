@@ -1,38 +1,25 @@
 import { useState } from "react";
-
 import "./Budgets.css";
 
 import Layout from "../../components/Layout/Layout";
+import { useFinance } from "../../hooks/useFinance";
 
 import SearchBudget from "../../components/Budget/SearchBudget/SearchBudget";
 import BudgetList from "../../components/Budget/BudgetList/BudgetList";
-import AddBudgetModal from "../../components/Budget/AddBudgetModal/AddBudgetModal";
 import BudgetSummary from "../../components/Budget/BudgetSummary/BudgetSummary";
+import AddBudgetModal from "../../components/Budget/AddBudgetModal/AddBudgetModal";
+import EditBudgetModal from "../../components/Budget/EditBudgetModal/EditBudgetModal";
 
 function Budget() {
+  const { budgets } = useFinance();
+
   const [search, setSearch] = useState("");
+
   const [showModal, setShowModal] = useState(false);
 
-  const [budgets, setBudgets] = useState([
-    {
-      id: 1,
-      category: "Food",
-      spent: 15000,
-      limit: 20000,
-    },
-    {
-      id: 2,
-      category: "Shopping",
-      spent: 8000,
-      limit: 15000,
-    },
-    {
-      id: 3,
-      category: "Travel",
-      spent: 9000,
-      limit: 10000,
-    },
-  ]);
+  const [showEditModal, setShowEditModal] = useState(false);
+
+  const [editingBudget, setEditingBudget] = useState(null);
 
   return (
     <Layout>
@@ -44,17 +31,25 @@ function Budget() {
         search={search}
         setSearch={setSearch}
       />
-      <BudgetSummary
-        budgets={budgets}
-      />
+
+      <BudgetSummary budgets={budgets} />
+
       <BudgetList
         budgets={budgets}
         search={search}
+        setEditingBudget={setEditingBudget}
+        setShowEditModal={setShowEditModal}
       />
 
       <AddBudgetModal
-          showModal={showModal}
-          setShowModal={setShowModal}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
+
+      <EditBudgetModal
+        showEditModal={showEditModal}
+        setShowEditModal={setShowEditModal}
+        editingBudget={editingBudget}
       />
 
       <button

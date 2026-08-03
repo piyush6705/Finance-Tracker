@@ -3,45 +3,27 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 
 function BudgetCard({
   category,
-  spent,
-  limit,
+  amount,
   onEdit,
   onDelete,
 }) {
-  const progress = (spent / limit) * 100;
-  const remaining = limit - spent;
-
   return (
     <div className="budget-card">
 
-      <div className="budget-header">
+      <div className="budget-card-header">
 
-        <h3>{category}</h3>
+        <div>
+          <h3>{category}</h3>
+          <p className="budget-category">
+            Monthly Budget
+          </p>
+        </div>
 
-        <span className="budget-percent">
-          {progress.toFixed(0)}%
-        </span>
-
-      </div>
-
-      <p className="budget-amount">
-        ₹{spent.toLocaleString("en-IN")} / ₹{limit.toLocaleString("en-IN")}
-      </p>
-
-      <div className="progress-bar">
-
-        <div
-          className="progress-fill"
-          style={{
-            width: `${Math.min(progress, 100)}%`,
-          }}
-        ></div>
+        <h2 className="budget-amount">
+          ₹{amount.toLocaleString("en-IN")}
+        </h2>
 
       </div>
-
-      <p className="remaining">
-        Remaining: ₹{remaining.toLocaleString("en-IN")}
-      </p>
 
       <div className="budget-actions">
 
@@ -49,14 +31,16 @@ function BudgetCard({
           className="edit-btn"
           onClick={onEdit}
         >
-          <FaEdit /> Edit
+          <FaEdit />
+          Edit
         </button>
 
         <button
           className="delete-btn"
           onClick={onDelete}
         >
-          <FaTrash /> Delete
+          <FaTrash />
+          Delete
         </button>
 
       </div>

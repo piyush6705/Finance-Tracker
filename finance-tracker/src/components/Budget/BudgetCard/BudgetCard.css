@@ -83,3 +83,14 @@
 .delete-btn:hover{
     background:#dc2626;
 }
+.budget-card h3{
+    color:#0f172a !important;
+}
+
+.budget-category{
+    color:#64748b !important;
+}
+
+.budget-amount{
+    color:#16a34a !important;
+}

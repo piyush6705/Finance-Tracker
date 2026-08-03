@@ -1,34 +1,39 @@
 import "./BudgetSummary.css";
 
 function BudgetSummary({ budgets }) {
+
   const totalBudget = budgets.reduce(
-    (sum, budget) => sum + budget.limit,
+    (total, budget) => total + budget.amount,
     0
   );
 
-  const totalSpent = budgets.reduce(
-    (sum, budget) => sum + budget.spent,
-    0
-  );
+  const totalCategories = budgets.length;
 
-  const remaining = totalBudget - totalSpent;
+  const averageBudget =
+    totalCategories > 0
+      ? totalBudget / totalCategories
+      : 0;
 
   return (
     <div className="budget-summary">
 
-      <div className="summary-box">
-        <h4>Total Budget</h4>
+      <div className="summary-card">
+        <h3>💰 Total Budget</h3>
         <h2>₹{totalBudget.toLocaleString("en-IN")}</h2>
       </div>
 
-      <div className="summary-box">
-        <h4>Total Spent</h4>
-        <h2>₹{totalSpent.toLocaleString("en-IN")}</h2>
+      <div className="summary-card">
+        <h3>📂 Categories</h3>
+        <h2>{totalCategories}</h2>
       </div>
 
-      <div className="summary-box">
-        <h4>Remaining</h4>
-        <h2>₹{remaining.toLocaleString("en-IN")}</h2>
+      <div className="summary-card">
+        <h3>📊 Average Budget</h3>
+        <h2>
+          ₹{averageBudget.toLocaleString("en-IN", {
+            maximumFractionDigits: 0,
+          })}
+        </h2>
       </div>
 
     </div>
