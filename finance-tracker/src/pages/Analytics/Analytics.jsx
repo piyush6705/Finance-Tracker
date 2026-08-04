@@ -8,7 +8,7 @@ import AnalyticsStats from "../../components/Analytics/AnalyticsStats/AnalyticsS
 
 import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/IncomeExpenseChart";
 import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
-import MonthlyExpenseChart from "../../components/Charts/MonthlyExpenseChart/MonthlyExpenseChart";
+
 
 import { useFinance } from "../../hooks/useFinance";
 
@@ -66,9 +66,7 @@ function Analytics() {
             expenses={expenses}
           />
 
-          <MonthlyExpenseChart
-            expenses={expenses}
-          />
+
 
         </div>
 

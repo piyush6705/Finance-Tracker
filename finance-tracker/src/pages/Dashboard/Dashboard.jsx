@@ -6,7 +6,7 @@ import DashboardSummary from "../../components/Dashboard/DashboardSummary/Dashbo
 import RecentTransactions from "../../components/Dashboard/RecentTransactions/RecentTransactions";
 import SavingsGoal from "../../components/Dashboard/SavingsGoal/SavingsGoal";
 import BudgetProgress from "../../components/Dashboard/BudgetProgress/BudgetProgress";
-import MonthlyExpenseChart from "../../components/Charts/MonthlyExpenseChart/MonthlyExpenseChart";
+
 import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
 import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/IncomeExpenseChart";
 import FinancialInsights from "../../components/Dashboard/FinancialInsights/FinancialInsights";
@@ -74,9 +74,7 @@ function Dashboard() {
           incomes={incomes}
           expenses={expenses}
         />
-        <MonthlyExpenseChart
-            expenses={expenses}
-        />
+        
         <TopSpending
             expenses={expenses}
         />
