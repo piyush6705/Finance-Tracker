@@ -9,7 +9,7 @@ import {
 function BudgetSummary({ budgets }) {
 
   const totalBudget = budgets.reduce(
-    (total, budget) => total + budget.amount,
+    (total, budget) => total + (budget.limit || 0),
     0
   );
 
@@ -32,9 +32,11 @@ function BudgetSummary({ budgets }) {
 
         <div className="summary-info">
           <h3>Total Budget</h3>
+
           <h2>
             ₹{totalBudget.toLocaleString("en-IN")}
           </h2>
+
         </div>
 
       </div>
@@ -47,7 +49,9 @@ function BudgetSummary({ budgets }) {
 
         <div className="summary-info">
           <h3>Categories</h3>
+
           <h2>{totalCategories}</h2>
+
         </div>
 
       </div>
@@ -60,6 +64,7 @@ function BudgetSummary({ budgets }) {
 
         <div className="summary-info">
           <h3>Average Budget</h3>
+
           <h2>
             ₹
             {averageBudget.toLocaleString(
@@ -69,6 +74,7 @@ function BudgetSummary({ budgets }) {
               }
             )}
           </h2>
+
         </div>
 
       </div>

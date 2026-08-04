@@ -33,7 +33,8 @@ function BudgetList({
         <BudgetCard
           key={budget.id}
           category={budget.category}
-          amount={budget.amount}
+          limit={budget.limit}
+          spent={budget.spent || 0}
 
           onEdit={() => {
             setEditingBudget(budget);

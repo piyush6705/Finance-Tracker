@@ -34,7 +34,7 @@ function BudgetProgress({
               0
             );
 
-          const limit = budget.limit ?? budget.amount ?? 0;
+          const limit = budget.limit ?? budget.limit ?? 0;
 
           const progress =
             limit > 0
@@ -54,7 +54,7 @@ function BudgetProgress({
 
                 <span>
                   ₹{spent.toLocaleString("en-IN")} /
-                  ₹{(budget.limit ?? budget.amount ?? 0).toLocaleString("en-IN")}
+                  ₹{(budget.limit ?? budget.limit ?? 0).toLocaleString("en-IN")}
                 </span>
 
               </div>

@@ -41,7 +41,7 @@ function Dashboard() {
   // Supports both old (amount) and new (limit) budget format
   const totalBudget = budgets.reduce(
     (sum, budget) =>
-      sum + (budget.limit ?? budget.amount ?? 0),
+      sum + (budget.limit ?? budget.limit ?? 0),
     0
   );
 
