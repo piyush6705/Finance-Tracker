@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import Layout from "../../components/Layout/Layout";
-
+import TopSpending from "../../components/Dashboard/TopSpending/TopSpending";
 import DashboardSummary from "../../components/Dashboard/DashboardSummary/DashboardSummary";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions/RecentTransactions";
 import SavingsGoal from "../../components/Dashboard/SavingsGoal/SavingsGoal";
@@ -77,7 +77,9 @@ function Dashboard() {
         <MonthlyExpenseChart
             expenses={expenses}
         />
-
+        <TopSpending
+            expenses={expenses}
+        />
         <SavingsGoal
           savings={savings}
         />
