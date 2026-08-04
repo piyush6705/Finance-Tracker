@@ -1,19 +1,18 @@
 .savings-goal{
 
+    margin-top:30px;
+
     background:#fff;
+
     border-radius:18px;
+
     padding:25px;
-    margin-top:25px;
 
     box-shadow:0 8px 24px rgba(15,23,42,.08);
 
 }
 
 .goal-header{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
 
     margin-bottom:25px;
 
@@ -22,6 +21,7 @@
 .goal-header h2{
 
     color:#0f172a;
+
     margin-bottom:5px;
 
 }
@@ -32,21 +32,43 @@
 
 }
 
-.goal-header h3{
+.goal-info{
 
-    color:#22c55e;
-    font-size:32px;
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+.goal-info span{
+
+    color:#64748b;
+
+    font-size:14px;
+
+}
+
+.goal-info h3{
+
+    margin-top:6px;
+
+    color:#2563eb;
 
 }
 
 .goal-progress{
 
     width:100%;
-    height:14px;
 
-    background:#e5e7eb;
+    height:16px;
 
-    border-radius:30px;
+    background:#e2e8f0;
+
+    border-radius:50px;
 
     overflow:hidden;
 
@@ -56,48 +78,32 @@
 
     height:100%;
 
-    background:#22c55e;
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #16a34a
+    );
 
-    border-radius:30px;
+    border-radius:50px;
 
-    transition:.4s;
+    transition:.5s;
 
 }
 
 .goal-footer{
 
     display:flex;
+
     justify-content:space-between;
 
-    margin-top:18px;
-
-    color:#64748b;
+    margin-top:15px;
 
     font-weight:600;
 
 }
 
-@media(max-width:768px){
+.goal-complete{
 
-.goal-header{
-
-    flex-direction:column;
-    align-items:flex-start;
-    gap:15px;
-
-}
-
-.goal-header h3{
-
-    font-size:28px;
-
-}
-
-.goal-footer{
-
-    flex-direction:column;
-    gap:8px;
-
-}
+    color:#16a34a;
 
 }
