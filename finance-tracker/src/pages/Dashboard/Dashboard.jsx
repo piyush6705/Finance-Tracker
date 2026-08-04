@@ -90,7 +90,7 @@ function Dashboard() {
 
         <BudgetProgress
           budgets={budgets}
-          totalBudget={totalBudget}
+          expenses={expenses}
         />
 
       </div>
