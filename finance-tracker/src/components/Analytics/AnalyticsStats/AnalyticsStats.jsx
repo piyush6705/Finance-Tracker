@@ -1,36 +1,59 @@
 import "./AnalyticsStats.css";
 
-function AnalyticsStats() {
+function AnalyticsStats({
+  totalIncome,
+  totalExpense,
+  balance,
+  totalBudget,
+}) {
+
+  const savingsRate =
+    totalIncome > 0
+      ? ((balance / totalIncome) * 100).toFixed(1)
+      : 0;
+
+  const budgetUsage =
+    totalBudget > 0
+      ? ((totalExpense / totalBudget) * 100).toFixed(1)
+      : 0;
+
   return (
-    <div className="stats-card">
 
-      <h2>Analytics Overview</h2>
+    <div className="analytics-stats">
 
-      <div className="stats-grid">
+      <div className="stat-card">
+        <h3>Total Income</h3>
+        <h2>
+          ₹{totalIncome.toLocaleString("en-IN")}
+        </h2>
+      </div>
 
-        <div>
-          <h4>Highest Expense</h4>
-          <p>₹20,000 (Rent)</p>
-        </div>
+      <div className="stat-card">
+        <h3>Total Expense</h3>
+        <h2>
+          ₹{totalExpense.toLocaleString("en-IN")}
+        </h2>
+      </div>
 
-        <div>
-          <h4>Highest Income</h4>
-          <p>₹50,000 (Salary)</p>
-        </div>
+      <div className="stat-card">
+        <h3>Current Balance</h3>
+        <h2>
+          ₹{balance.toLocaleString("en-IN")}
+        </h2>
+      </div>
 
-        <div>
-          <h4>Average Monthly Income</h4>
-          <p>₹42,500</p>
-        </div>
+      <div className="stat-card">
+        <h3>Savings Rate</h3>
+        <h2>{savingsRate}%</h2>
+      </div>
 
-        <div>
-          <h4>Average Monthly Expense</h4>
-          <p>₹28,700</p>
-        </div>
-
+      <div className="stat-card">
+        <h3>Budget Usage</h3>
+        <h2>{budgetUsage}%</h2>
       </div>
 
     </div>
+
   );
 }
 

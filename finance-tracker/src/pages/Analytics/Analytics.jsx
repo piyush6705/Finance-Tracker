@@ -10,7 +10,31 @@ import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/Incom
 import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
 import MonthlyExpenseChart from "../../components/Charts/MonthlyExpenseChart/MonthlyExpenseChart";
 
+import { useFinance } from "../../hooks/useFinance";
+
 function Analytics() {
+
+  const { incomes, expenses, budgets } = useFinance();
+
+  // ================= Totals =================
+
+  const totalIncome = incomes.reduce(
+    (sum, income) => sum + income.amount,
+    0
+  );
+
+  const totalExpense = expenses.reduce(
+    (sum, expense) => sum + expense.amount,
+    0
+  );
+
+  const balance = totalIncome - totalExpense;
+
+  const totalBudget = budgets.reduce(
+    (sum, budget) => sum + budget.limit,
+    0
+  );
+
   return (
     <Layout>
 
@@ -24,21 +48,40 @@ function Analytics() {
           </p>
         </div>
 
-        <SummaryCards />
+        <SummaryCards
+          totalIncome={totalIncome}
+          totalExpense={totalExpense}
+          balance={balance}
+          totalBudget={totalBudget}
+        />
 
         <div className="analytics-charts">
 
-          <IncomeExpenseChart />
+          <IncomeExpenseChart
+            incomes={incomes}
+            expenses={expenses}
+          />
 
-          <ExpensePieChart />
+          <ExpensePieChart
+            expenses={expenses}
+          />
 
-          <MonthlyExpenseChart />
+          <MonthlyExpenseChart
+            expenses={expenses}
+          />
 
         </div>
 
-        <TopCategories />
+        <TopCategories
+          expenses={expenses}
+        />
 
-        <AnalyticsStats />
+        <AnalyticsStats
+          totalIncome={totalIncome}
+          totalExpense={totalExpense}
+          balance={balance}
+          totalBudget={totalBudget}
+        />
 
       </div>
 
