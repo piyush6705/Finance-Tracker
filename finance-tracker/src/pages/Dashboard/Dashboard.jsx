@@ -9,7 +9,7 @@ import BudgetProgress from "../../components/Dashboard/BudgetProgress/BudgetProg
 import MonthlyExpenseChart from "../../components/Charts/MonthlyExpenseChart/MonthlyExpenseChart";
 import ExpensePieChart from "../../components/Charts/ExpensePieChart/ExpensePieChart";
 import IncomeExpenseChart from "../../components/Charts/IncomeExpenseChart/IncomeExpenseChart";
-
+import FinancialInsights from "../../components/Dashboard/FinancialInsights/FinancialInsights";
 import { FinanceContext } from "../../context/FinanceContext";
 
 import "./Dashboard.css";
@@ -78,6 +78,10 @@ function Dashboard() {
             expenses={expenses}
         />
         <TopSpending
+            expenses={expenses}
+        />
+        <FinancialInsights
+            incomes={incomes}
             expenses={expenses}
         />
         <SavingsGoal

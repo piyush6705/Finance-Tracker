@@ -1,0 +1,79 @@
+.financial-insights{
+
+    background:white;
+
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+
+}
+
+.insight-header{
+
+    margin-bottom:25px;
+
+}
+
+.insight-header h2{
+
+    color:#0f172a;
+
+}
+
+.insight-header p{
+
+    color:#64748b;
+
+}
+
+.insight-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.insight-card{
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.insight-card h4{
+
+    color:#475569;
+
+    font-size:15px;
+
+}
+
+.insight-card span{
+
+    color:#64748b;
+
+}
+
+.insight-card strong{
+
+    color:#2563eb;
+
+    font-size:22px;
+
+}
