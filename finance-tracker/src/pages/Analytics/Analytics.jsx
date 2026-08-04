@@ -1,7 +1,7 @@
 import "./Analytics.css";
 
 import Layout from "../../components/Layout/Layout";
-
+import FinancialInsights from "../../components/Dashboard/FinancialInsights/FinancialInsights";
 import SummaryCards from "../../components/Analytics/SummaryCards/SummaryCards";
 import TopCategories from "../../components/Analytics/TopCategories/TopCategories";
 import AnalyticsStats from "../../components/Analytics/AnalyticsStats/AnalyticsStats";
@@ -73,6 +73,8 @@ function Analytics() {
         <TopCategories
           expenses={expenses}
         />
+
+    
 
         <AnalyticsStats
           totalIncome={totalIncome}
