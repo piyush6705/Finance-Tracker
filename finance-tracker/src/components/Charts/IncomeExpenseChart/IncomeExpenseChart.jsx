@@ -8,6 +8,7 @@ import {
   YAxis,
   Tooltip,
   CartesianGrid,
+  Legend,
 } from "recharts";
 
 function IncomeExpenseChart({
@@ -15,38 +16,68 @@ function IncomeExpenseChart({
   expenses = [],
 }) {
 
-  const totalIncome = incomes.reduce(
-    (sum, income) => sum + income.amount,
-    0
-  );
-
-  const totalExpense = expenses.reduce(
-    (sum, expense) => sum + expense.amount,
-    0
-  );
-
-  const chartData = [
-    {
-      name: "Income",
-      amount: totalIncome,
-    },
-    {
-      name: "Expense",
-      amount: totalExpense,
-    },
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
 
+  const chartData = months.map((month, index) => {
+
+    const income = incomes
+      .filter(
+        (item) =>
+          new Date(item.date).getMonth() === index
+      )
+      .reduce(
+        (sum, item) => sum + item.amount,
+        0
+      );
+
+    const expense = expenses
+      .filter(
+        (item) =>
+          new Date(item.date).getMonth() === index
+      )
+      .reduce(
+        (sum, item) => sum + item.amount,
+        0
+      );
+
+    return {
+      month,
+      Income: income,
+      Expense: expense,
+    };
+
+  });
+
   return (
+
     <div className="income-expense-chart">
 
       <div className="chart-header">
-        <h2>Income vs Expense</h2>
-        <p>Financial Overview</p>
+
+        <h2>Monthly Income vs Expense</h2>
+
+        <p>
+          Compare your monthly cash flow
+        </p>
+
       </div>
 
       <ResponsiveContainer
         width="100%"
-        height={350}
+        height={400}
       >
 
         <BarChart
@@ -55,22 +86,27 @@ function IncomeExpenseChart({
 
           <CartesianGrid strokeDasharray="3 3" />
 
-          <XAxis
-            dataKey="name"
-          />
+          <XAxis dataKey="month" />
 
           <YAxis />
 
           <Tooltip
             formatter={(value) => [
-              `₹${value.toLocaleString("en-IN")}`,
-              "Amount",
+              `₹${Number(value).toLocaleString("en-IN")}`,
             ]}
           />
 
+          <Legend />
+
           <Bar
-            dataKey="amount"
-            fill="#2563eb"
+            dataKey="Income"
+            fill="#22c55e"
+            radius={[8, 8, 0, 0]}
+          />
+
+          <Bar
+            dataKey="Expense"
+            fill="#ef4444"
             radius={[8, 8, 0, 0]}
           />
 
@@ -79,6 +115,7 @@ function IncomeExpenseChart({
       </ResponsiveContainer>
 
     </div>
+
   );
 }
 
