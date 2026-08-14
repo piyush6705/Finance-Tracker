@@ -221,3 +221,78 @@ input:focus, select:focus, textarea:focus {
   background: var(--color-border);
   border-radius: 4px;
 }
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode {
+  background: #111827;
+  color: #f9fafb;
+}
+
+/* Main cards */
+
+body.dark-mode .appearance-settings,
+body.dark-mode .personal-info,
+body.dark-mode .account-info,
+body.dark-mode .financial-overview,
+body.dark-mode .profile-card,
+body.dark-mode .settings-card {
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+/* Headings */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: #f9fafb;
+}
+
+/* Paragraphs */
+
+body.dark-mode p {
+  color: #9ca3af;
+}
+
+/* Inputs */
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: #374151;
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+/* Theme buttons */
+
+body.dark-mode .theme-option {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark-mode .theme-option.active {
+  background: #1e3a8a;
+  border-color: #3b82f6;
+}
+
+/* Info items */
+
+body.dark-mode .info-item,
+body.dark-mode .account-item,
+body.dark-mode .financial-card {
+  background: #374151;
+}
+
+/* Text inside cards */
+
+body.dark-mode .theme-info h3,
+body.dark-mode .info-item strong,
+body.dark-mode .account-item strong,
+body.dark-mode .financial-card h3 {
+  color: #f9fafb;
+}
