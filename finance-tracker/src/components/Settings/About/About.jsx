@@ -2,57 +2,49 @@ import "./About.css";
 
 function About() {
   return (
-    <div className="about-card">
+    <div className="about-settings">
 
-      <h2>About</h2>
-
-      <div className="about-row">
-
-        <span>Application</span>
-
-        <strong>Finance Tracker</strong>
-
+      <div className="settings-section-header">
+        <h2>About</h2>
+        <p>Information about your Finance Tracker.</p>
       </div>
 
-      <div className="about-row">
+      <div className="about-content">
 
-        <span>Version</span>
+        <div className="about-logo">
+          💰
+        </div>
 
-        <strong>v1.0.0</strong>
+        <h1>Finance Tracker</h1>
 
-      </div>
+        <p className="about-description">
+          A simple personal finance application that helps
+          you track your income, expenses, budgets, and
+          overall financial activity.
+        </p>
 
-      <div className="about-row">
+        <div className="about-details">
 
-        <span>Developer</span>
+          <div className="about-detail">
+            <span>Version</span>
+            <strong>1.0.0</strong>
+          </div>
 
-        <strong>Piyush Sharma</strong>
+          <div className="about-detail">
+            <span>Built With</span>
+            <strong>React</strong>
+          </div>
 
-      </div>
+          <div className="about-detail">
+            <span>Currency</span>
+            <strong>Indian Rupee (₹)</strong>
+          </div>
 
-      <div className="about-row">
+        </div>
 
-        <span>Built With</span>
-
-        <strong>React + Vite</strong>
-
-      </div>
-
-      <div className="about-row">
-
-        <span>License</span>
-
-        <strong>MIT</strong>
-
-      </div>
-
-      <div className="about-row">
-
-        <span>Support</span>
-
-        <button className="contact-btn">
-          Contact Developer
-        </button>
+        <p className="about-footer">
+          Built for personal financial management.
+        </p>
 
       </div>
 
