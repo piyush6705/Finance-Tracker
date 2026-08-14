@@ -1,49 +1,104 @@
-.financial-card{
-    background:#ffffff;
-    border-radius:16px;
-    padding:25px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+.financial-overview {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
-.financial-card h2{
-    margin-bottom:25px;
-    color:#0f172a;
+.section-header {
+  margin-bottom: 24px;
 }
 
-.financial-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+.section-header h2 {
+  margin: 0 0 6px;
+  color: #111827;
+  font-size: 20px;
 }
 
-.financial-box{
-    background:#f8fafc;
-    padding:22px;
-    border-radius:12px;
-    transition:.3s;
+.section-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
 }
 
-.financial-box:hover{
-    transform:translateY(-4px);
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+.financial-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
 }
 
-.financial-box span{
-    display:block;
-    color:#64748b;
-    margin-bottom:10px;
-    font-size:15px;
+.financial-card {
+  padding: 20px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #f9fafb;
 }
 
-.financial-box h3{
-    color:#22c55e;
-    font-size:30px;
+.financial-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
 }
 
-@media(max-width:768px){
-
-.financial-grid{
-    grid-template-columns:1fr;
+.financial-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 5px;
 }
 
+.financial-card h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 18px;
+}
+
+/* Income */
+
+.income-card .financial-icon {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+/* Expense */
+
+.expense-card .financial-icon {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Balance */
+
+.balance-card .financial-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+/* Budget */
+
+.budget-card .financial-icon {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+@media (max-width: 1100px) {
+  .financial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .financial-grid {
+    grid-template-columns: 1fr;
+  }
 }

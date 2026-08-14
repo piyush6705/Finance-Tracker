@@ -3,6 +3,7 @@ import "./Profile.css";
 import Layout from "../../components/Layout/Layout";
 import ProfileCard from "../../components/Profile/ProfileCard/ProfileCard";
 import PersonalInfo from "../../components/Profile/PersonalInfo/PersonalInfo";
+import AccountInfo from "../../components/Profile/AccountInfo/AccountInfo";
 
 function Profile() {
   return (
@@ -18,6 +19,11 @@ function Profile() {
           phone="+91 XXXXX XXXXX"
           occupation="Student"
           location="India"
+        />
+        <AccountInfo
+          joinedDate="August 2026"
+          totalTransactions={0}
+          accountType="Personal"
         />
 
       </div>
