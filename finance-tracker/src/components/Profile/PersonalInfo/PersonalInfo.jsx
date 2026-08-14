@@ -1,44 +1,52 @@
 import "./PersonalInfo.css";
+import { FaPhone, FaBriefcase, FaMapMarkerAlt } from "react-icons/fa";
 
-function PersonalInfo() {
-  const user = {
-    fullName: "Piyush Sharma",
-    email: "piyush@example.com",
-    phone: "+91 9876543210",
-    country: "India",
-    city: "Nashik",
-  };
-
+function PersonalInfo({
+  phone = "Not provided",
+  occupation = "Not provided",
+  location = "Not provided",
+}) {
   return (
-    <div className="personal-info-card">
+    <div className="personal-info">
 
-      <h2>Personal Information</h2>
+      <div className="section-header">
+        <h2>Personal Information</h2>
+        <p>Your personal details</p>
+      </div>
 
-      <div className="info-grid">
+      <div className="personal-info-grid">
 
         <div className="info-item">
-          <span>Full Name</span>
-          <p>{user.fullName}</p>
+          <div className="info-icon">
+            <FaPhone />
+          </div>
+
+          <div>
+            <span>Phone</span>
+            <strong>{phone}</strong>
+          </div>
         </div>
 
         <div className="info-item">
-          <span>Email</span>
-          <p>{user.email}</p>
+          <div className="info-icon">
+            <FaBriefcase />
+          </div>
+
+          <div>
+            <span>Occupation</span>
+            <strong>{occupation}</strong>
+          </div>
         </div>
 
         <div className="info-item">
-          <span>Phone</span>
-          <p>{user.phone}</p>
-        </div>
+          <div className="info-icon">
+            <FaMapMarkerAlt />
+          </div>
 
-        <div className="info-item">
-          <span>Country</span>
-          <p>{user.country}</p>
-        </div>
-
-        <div className="info-item">
-          <span>City</span>
-          <p>{user.city}</p>
+          <div>
+            <span>Location</span>
+            <strong>{location}</strong>
+          </div>
         </div>
 
       </div>
