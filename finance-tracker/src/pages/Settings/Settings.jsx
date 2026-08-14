@@ -1,5 +1,7 @@
-import Layout from "../../components/Layout/Layout";
 import "./Settings.css";
+
+import Layout from "../../components/Layout/Layout";
+
 import Appearance from "../../components/Settings/Appearance/Appearance";
 import Preferences from "../../components/Settings/Preferences/Preferences";
 import Notifications from "../../components/Settings/Notifications/Notifications";
@@ -12,15 +14,28 @@ function Settings() {
 
       <div className="settings-page">
 
-        <h1>Settings</h1>
+        <div className="settings-header">
+          <h1>Settings</h1>
 
-        <Appearance />
-        <Preferences />
-        <Notifications />
-        <DataManagement />
-        <About />
-        
-        
+          <p>
+            Manage your application preferences and data.
+          </p>
+        </div>
+
+        <div className="settings-content">
+
+          <Appearance />
+
+          <Preferences />
+
+          <Notifications />
+
+          <DataManagement />
+
+          <About />
+
+        </div>
+
       </div>
 
     </Layout>

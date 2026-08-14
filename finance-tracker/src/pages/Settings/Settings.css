@@ -1,10 +1,87 @@
-.settings-page{
-    display:flex;
-    flex-direction:column;
-    gap:25px;
+/* =========================
+   SETTINGS PAGE
+========================= */
+
+.settings-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
-.settings-page h1{
-    color:white;
-    font-size:42px;
+/* =========================
+   SETTINGS HEADER
+========================= */
+
+.settings-header {
+  margin-bottom: 30px;
+}
+
+.settings-header h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.settings-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* =========================
+   SETTINGS CONTENT
+========================= */
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* =========================
+   COMMON SETTINGS CARD
+========================= */
+
+.settings-content > div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .settings-page {
+    padding: 20px;
+  }
+
+  .settings-header h1 {
+    font-size: 26px;
+  }
+
+  .settings-header p {
+    font-size: 13px;
+  }
+
+  .settings-content {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-page {
+    padding: 15px;
+  }
+
+  .settings-header {
+    margin-bottom: 22px;
+  }
+
+  .settings-header h1 {
+    font-size: 24px;
+  }
 }
