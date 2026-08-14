@@ -1,53 +1,76 @@
+import { useState } from "react";
 import "./Appearance.css";
 
 function Appearance() {
+  const [theme, setTheme] = useState("light");
+
+  const handleThemeChange = (value) => {
+    setTheme(value);
+
+    if (value === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  };
+
   return (
-    <div className="appearance-card">
+    <div className="appearance-settings">
 
-      <h2>Appearance</h2>
-
-      <div className="setting-row">
-
-        <div>
-          <h3>Dark Mode</h3>
-          <p>Switch between light and dark theme.</p>
-        </div>
-
-        <label className="switch">
-          <input type="checkbox" />
-          <span className="slider"></span>
-        </label>
-
+      <div className="settings-section-header">
+        <h2>Appearance</h2>
+        <p>Customize how your Finance Tracker looks.</p>
       </div>
 
-      <div className="setting-row">
+      <div className="appearance-options">
 
-        <div>
-          <h3>Accent Color</h3>
-          <p>Select your preferred theme color.</p>
-        </div>
+        <button
+          className={`theme-option ${
+            theme === "light" ? "active" : ""
+          }`}
+          onClick={() => handleThemeChange("light")}
+        >
+          <div className="theme-preview light-preview">
+            <div className="preview-header"></div>
+            <div className="preview-content">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
 
-        <select>
-          <option>Green</option>
-          <option>Blue</option>
-          <option>Purple</option>
-          <option>Orange</option>
-        </select>
+          <div className="theme-info">
+            <h3>Light</h3>
+            <p>Use the light appearance</p>
+          </div>
 
-      </div>
+          <div className="theme-radio">
+            {theme === "light" && "✓"}
+          </div>
+        </button>
 
-      <div className="setting-row">
+        <button
+          className={`theme-option ${
+            theme === "dark" ? "active" : ""
+          }`}
+          onClick={() => handleThemeChange("dark")}
+        >
+          <div className="theme-preview dark-preview">
+            <div className="preview-header"></div>
+            <div className="preview-content">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
 
-        <div>
-          <h3>Font Size</h3>
-          <p>Choose your preferred text size.</p>
-        </div>
+          <div className="theme-info">
+            <h3>Dark</h3>
+            <p>Use the dark appearance</p>
+          </div>
 
-        <select>
-          <option>Small</option>
-          <option selected>Medium</option>
-          <option>Large</option>
-        </select>
+          <div className="theme-radio">
+            {theme === "dark" && "✓"}
+          </div>
+        </button>
 
       </div>
 
